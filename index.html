@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>[Personal Cybersecurity Awareness Guide] - Project Charter</title>
+  <!-- Presentation/layout/UX upgrades; content preserved as provided. -->
   <style>
-    /* ---------- CSS RESET ---------- */
+    /* ---------- CSS RESET (lightweight) ---------- */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { height: 100%; }
     body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; background: #0b1020; color: #0f172a; }
@@ -14,20 +16,24 @@
 
     /* ---------- THEME ---------- */
     :root{
-      --bg: #0b1020;
-      --panel: #ffffff;
-      --panel-2: #f7f8fb;
-      --text: #0f172a;
-      --text-soft: #475569;
-      --brand: #2563eb;
-      --brand-2:#22c55e;
+      --bg: #0b1020;            /* page bg */
+      --panel: #ffffff;         /* cards */
+      --panel-2: #f7f8fb;       /* subtle */
+      --text: #0f172a;          /* main text */
+      --text-soft: #475569;     /* secondary */
+      --brand: #2563eb;         /* blue */
+      --brand-2:#22c55e;        /* green accent */
+      --ring: rgba(37, 99, 235, .18);
       --shadow: 0 10px 30px rgba(2, 6, 23, .14);
       --shadow-soft: 0 8px 24px rgba(2, 6, 23, .08);
       --radius-xl: 16px;
+      --radius-lg: 12px;
+      --radius-md: 10px;
+      --radius-sm: 8px;
     }
     body{ background: linear-gradient(180deg, var(--bg) 0%, #0f172a 100%); }
 
-    /* ---------- LAYOUT ---------- */
+    /* ---------- SHELL LAYOUT ---------- */
     .shell { max-width: 1100px; margin: 0 auto; padding: 24px; }
     .app { display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start; }
     @media (max-width: 980px){ .app { grid-template-columns: 1fr; } }
@@ -40,13 +46,13 @@
 
     .nav h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: #cbd5e1; margin: 14px 8px 8px; }
     .toc { margin: 0; padding: 0; list-style: none; }
-    .toc a { display: flex; align-items: center; gap: 8px; padding: 10px 12px; margin: 6px 0; border-radius: 10px; font-size: 14px; color: #e5e7eb; transition: background .2s; }
+    .toc a { display: flex; align-items: center; gap: 8px; padding: 10px 12px; margin: 6px 0; border-radius: 10px; font-size: 14px; color: #e5e7eb; transition: background .2s, transform .06s; }
     .toc a:hover { background: rgba(255,255,255,.08); }
     .toc a.active { background: linear-gradient(135deg, rgba(37,99,235,.22), rgba(34,197,94,.22)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
     .toc .idx { display:inline-grid; place-items:center; width: 22px; height: 22px; border-radius: 8px; background: rgba(255,255,255,.08); font-size: 12px; }
 
     .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #e5e7eb; cursor: pointer; font-size: 13px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #e5e7eb; cursor: pointer; font-size: 13px; transition: transform .06s ease, background .2s; }
     .btn:hover { background: rgba(255,255,255,.12); }
     .toggle { display:flex; align-items:center; gap:8px; margin-top: 8px; font-size: 13px; color:#e5e7eb; }
 
@@ -55,20 +61,21 @@
     .header h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: .3px; }
     .header p { margin: 0; color: #cbd5e1; font-size: 14px; }
 
-    /* ---------- CARDS ---------- */
+    /* ---------- CONTENT (card stack) ---------- */
     .stack { display: grid; gap: 18px; margin-top: 20px; }
     .card { background: var(--panel); border-radius: var(--radius-xl); box-shadow: var(--shadow-soft); border: 1px solid #e5e7eb; overflow: clip; }
 
-    .card summary { list-style: none; display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 18px 20px; border-bottom: 1px solid #eef2f7; background: linear-gradient(180deg, #ffffff, #fbfcff); }
+    /* Collapsible header */
+    .card summary { list-style: none; display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 18px 20px; border-bottom: 1px solid #eef2f7; background: linear-gradient(180deg, #ffffff, #fbfcff); }
     .card summary::-webkit-details-marker { display: none; }
     .title { font-size: 16px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 10px; }
     .summary-meta { margin-left:auto; font-weight:600; font-size:13px; color:#64748b; }
-    .toggle-hint { margin-left:10px; font-size:12px; color:#64748b; }
-    .chev { width: 20px; height: 20px; display:grid; place-items:center; border-radius: 6px; background: #eef2ff; color: #1d4ed8; transition: transform .2s; margin-left: 8px; }
+    .chev { margin-left: 10px; width: 20px; height: 20px; display:grid; place-items:center; border-radius: 6px; background: #eef2ff; color: #1d4ed8; transition: transform .2s; }
     details[open] .chev { transform: rotate(180deg); }
+
     .section-body { padding: 18px 20px 22px; background: var(--panel); color: var(--text); }
 
-    /* ---------- COMPONENTS ---------- */
+    /* Gentle restyle of your components */
     .student-info { background: #f0fdf4; border-left: 6px solid #16a34a; border-radius: 12px; padding: 18px; }
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
     .info-label { font-size: 12px; font-weight: 700; color: #065f46; text-transform: uppercase; letter-spacing: .06em; }
@@ -86,14 +93,38 @@
     .stakeholder-table th { background: #0f766e; color: #fff; padding: 12px; text-align: left; }
     .stakeholder-table td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
 
-    /* ---------- FLOATING UI ---------- */
+    /* Back-to-top and progress */
     .top { position: fixed; right: 18px; bottom: 18px; display: grid; place-items:center; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; border: none; box-shadow: var(--shadow); cursor: pointer; transform: translateY(100px); transition: transform .2s ease; }
     .top.show { transform: translateY(0); }
+
     .progress { position: fixed; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); transform-origin: 0 50%; transform: scaleX(0); z-index: 9999; }
 
-    /* ---------- ACCESSIBILITY ---------- */
+    /* Accessibility helpers */
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    .high-contrast, .high-contrast *{ --panel:#fff; --text:#000; --text-soft:#333; filter:none !important; }
+
+    /* Budget & Deliverables */
+    .deliverables-chart { margin-top: 20px; overflow-x: auto; }
+    .deliverable-table th, .deliverable-table td { border: 1px solid #e2e8f0; padding: 10px; text-align: left; vertical-align: top; }
+    .deliverable-table th { background-color: #f1f5f9; font-weight: 700; }
+    .deliverable-table tr:nth-child(even) { background-color: #f9fafb; }
+
+    .budget-card{ background:#ffffff; border-radius:12px; box-shadow:0 6px 18px rgba(16,24,40,0.06); padding:16px; margin-top:0; border: 1px solid #e5e7eb; }
+    .budget-card h3{ margin:0 0 12px 0; font-size:1.2rem; }
+    .budget-table{ width:100%; border-collapse:collapse; margin-bottom:16px; font-size:0.92rem; }
+    .budget-table th, .budget-table td{ border:1px solid #e5e7eb; padding:8px 10px; text-align:left; vertical-align:top; }
+    .budget-table th{ background:#f9fafb; font-weight:600; font-size:0.9rem; }
+    .budget-section-title{ background:#f1f5f9; font-weight:700; text-transform:uppercase; text-align:left; }
+    .budget-subtotal{ background:#fef9c3; font-weight:600; text-align:right; }
+    .budget-total{ background:#dcfce7; font-weight:700; text-align:right; }
+    .note{ font-size:0.92rem; color:#475569; margin-top:8px; }
+
+    /* High contrast mode */
+    .high-contrast, .high-contrast *{
+      --panel:#fff;
+      --text:#000;
+      --text-soft:#333;
+      filter:none !important;
+    }
   </style>
 </head>
 <body>
@@ -117,22 +148,23 @@
 
       <!-- Main -->
       <main>
+        <!-- Header -->
         <header class="header">
           <h1>[Personal Cybersecurity Awareness Guide]</h1>
           <p>Project Charter - Managing IT Projects Course</p>
         </header>
 
+        <!-- Stack of collapsible sections -->
         <section class="stack" id="sections">
 
-          <!-- Student Information (Always Expanded) -->
+          <!-- Student Information (expanded) -->
           <details class="card" data-title="Student Information" open>
             <summary>
               <span class="title">Student Information</span>
               <span class="summary-meta">Always visible</span>
-              <span class="toggle-hint" data-hint>Click to collapse</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="student-body">
+            <div class="section-body">
               <div class="student-info">
                 <h3>Student Information</h3>
                 <div class="info-grid">
@@ -153,15 +185,14 @@
             </div>
           </details>
 
-          <!-- Project Goal (Always Expanded) -->
+          <!-- 1. Project Title & Description (expanded; acts as Project Goal) -->
           <details class="card" data-title="📋 1. Project Title & Description" open>
             <summary>
               <span class="title">📋 1. Project Title & Description</span>
-              <span class="summary-meta">Project goal</span>
-              <span class="toggle-hint" data-hint>Click to collapse</span>
+              <span class="summary-meta"><span class="pill">Project goal</span></span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="goal-body">
+            <div class="section-body">
               <div class="placeholder">
                 <h3>Project Title: Personal Cybersecurity Awareness Guide</h3>
                 <p>This project will create a clear and accessible cybersecurity guide that teaches everyday internet users how to protect themselves from common online threats such as phishing, weak passwords, and unsafe browsing. The guide will provide step-by-step tips, examples, and best practices to promote safer digital habits. It will benefit students, professionals, and the general public by increasing awareness and reducing the risk of cyberattacks.</p>
@@ -169,15 +200,14 @@
             </div>
           </details>
 
-          <!-- Vision/Mission (Collapsed) -->
+          <!-- 2. Vision, Mission & Strategy Alignment -->
           <details class="card" data-title="🎯 2. Vision, Mission & Strategy Alignment">
             <summary>
               <span class="title">🎯 2. Vision, Mission & Strategy Alignment</span>
               <span class="summary-meta">How mission maps to goal</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="vision-body">
+            <div class="section-body">
               <div class="placeholder">
                 <h4>Personal Mission Connection:</h4>
                 <p>This project supports my personal mission of helping others stay safe and confident in the digital world. It reflects my values of education, security, and empowerment by providing people with practical tools to protect themselves online.</p>
@@ -191,15 +221,14 @@
             </div>
           </details>
 
-          <!-- Business Case (Collapsed) -->
+          <!-- 3. Business Case & Justification -->
           <details class="card" data-title="💼 3. Business Case & Justification">
             <summary>
               <span class="title">💼 3. Business Case & Justification</span>
               <span class="summary-meta">Why this project matters</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="business-body">
+            <div class="section-body">
               <div class="placeholder">
                 <h4>Professional Value:</h4>
                 <p>This project will strengthen my career by giving me hands-on experience in cybersecurity awareness and digital safety education. It will improve my portfolio with a tangible deliverable that demonstrates my ability to simplify technical concepts for diverse audiences. Additionally, it builds transferable skills such as research, writing, and communication that are valuable across cybersecurity and IT careers.</p>
@@ -213,15 +242,14 @@
             </div>
           </details>
 
-          <!-- Scope (Collapsed) -->
+          <!-- 4. High-Level Scope -->
           <details class="card" data-title="📏 4. High-Level Scope">
             <summary>
               <span class="title">📏 4. High-Level Scope</span>
               <span class="summary-meta">In / Out / Roadmap</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="scope-body">
+            <div class="section-body">
               <div class="scope-grid">
                 <div class="scope-card in-scope">
                   <h4>✅ In Scope for Semester Project</h4>
@@ -239,7 +267,7 @@
                   <div class="placeholder">
                     <ul>
                       <li>Add interactive elements such as short quizzes or scenarios to test user knowledge</li>
-                      <li>Translate the guide into other languages</li>
+                      <li>Transalte the guide into other languages</li>
                     </ul>
                   </div>
                 </div>
@@ -258,15 +286,14 @@
             </div>
           </details>
 
-          <!-- Stakeholder Register (Collapsed) -->
+          <!-- 5. Stakeholder Register -->
           <details class="card" data-title="👥 5. Stakeholder Register">
             <summary>
               <span class="title">👥 5. Stakeholder Register</span>
               <span class="summary-meta">Roles & engagement</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="stakeholder-body">
+            <div class="section-body">
               <div class="completed-work">
                 <table class="stakeholder-table" aria-label="Stakeholder Register">
                   <thead>
@@ -281,17 +308,17 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Instructor</td>
-                      <td>Internal</td>
-                      <td>Provide guidance and sets evaluation criteria</td>
-                      <td>High</td>
-                      <td>High</td>
-                      <td>Check in regularly and ask for feedback</td>
+                      <td class="Stakeholder">Instructor</td>
+                      <td class="Category">Internal</td>
+                      <td class="Role/Interest">Provide guidance and sets evaluation criteria </td>
+                      <td class="Power">High</td>
+                      <td class="Interest">High</td>
+                      <td class="Engagment Strategy">Check in regularly and ask for feedback</td>
                     </tr>
                     <tr>
                       <td>Classmates</td>
                       <td>Internal</td>
-                      <td>Peer reviewers</td>
+                      <td>Peer reviewers </td>
                       <td>Medium</td>
                       <td>High</td>
                       <td>Share drafts and ask for feedback</td>
@@ -307,10 +334,10 @@
                     <tr>
                       <td>School Library</td>
                       <td>Internal</td>
-                      <td>Help find research sources</td>
+                      <td>help find research sources</td>
                       <td>Medium</td>
                       <td>Medium</td>
-                      <td>Ask for help with reliable sources when needed</td>
+                      <td>ask for help with reliable sources when needed</td>
                     </tr>
                     <tr>
                       <td>IT Club</td>
@@ -333,43 +360,82 @@
                       <td>External</td>
                       <td>Reference materials for content accuracy</td>
                       <td>Medium</td>
-                      <td>Low</td>
-                      <td>Use reliable references</td>
+                      <td>low</td>
+                      <td>use reliable references</td>
                     </tr>
                     <tr>
                       <td>Local Community Center</td>
-                      <td>External</td>
+                      <td>external</td>
                       <td>Potential group to share guide with</td>
-                      <td>Low</td>
+                      <td>low</td>
                       <td>Medium</td>
-                      <td>Share guide and collect feedback from community members</td>
+                      <td>share guide and collect feedback from community members</td>
                     </tr>
                   </tbody>
                 </table>
 
                 <div class="content-card" style="margin-top:12px;">
                   <h4>Power-Interest Grid Visualization</h4>
-                  <!-- (SVG unchanged from your version) -->
                   <svg width="100%" height="400" viewBox="0 0 600 400" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white;">
-                    <!-- Grid, labels, points (same as before) -->
+                    <!-- Grid lines -->
+                    <line x1="50" y1="50" x2="550" y2="50" stroke="#e2e8f0" stroke-width="1"/>
                     <line x1="50" y1="200" x2="550" y2="200" stroke="#64748b" stroke-width="2"/>
+                    <line x1="50" y1="350" x2="550" y2="350" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="50" y1="50" x2="50" y2="350" stroke="#e2e8f0" stroke-width="1"/>
                     <line x1="300" y1="50" x2="300" y2="350" stroke="#64748b" stroke-width="2"/>
-                    <!-- ... (rest of your SVG omitted for brevity; keep as-is) ... -->
+                    <line x1="550" y1="50" x2="550" y2="350" stroke="#e2e8f0" stroke-width="1"/>
+
+                    <!-- Labels -->
+                    <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Power-Interest Grid</text>
+                    <text x="25" y="130" text-anchor="middle" font-size="12" font-weight="500" fill="#64748b" transform="rotate(-90 25 130)">POWER</text>
+                    <text x="300" y="385" text-anchor="middle" font-size="12" font-weight="500" fill="#64748b">INTEREST</text>
+
+                    <!-- Quadrant labels -->
+                    <text x="175" y="75" text-anchor="middle" font-size="11" font-weight="500" fill="#64748b">Keep Satisfied</text>
+                    <text x="425" y="75" text-anchor="middle" font-size="11" font-weight="500" fill="#ef4444">Manage Closely</text>
+                    <text x="175" y="330" text-anchor="middle" font-size="11" font-weight="500" fill="#64748b">Monitor</text>
+                    <text x="425" y="330" text-anchor="middle" font-size="11" font-weight="500" fill="#10b981">Keep Informed</text>
+
+                    <!-- Power scale -->
+                    <text x="35" y="85" font-size="10" fill="#64748b">High</text>
+                    <text x="35" y="205" font-size="10" fill="#64748b">Med</text>
+                    <text x="35" y="335" font-size="10" fill="#64748b">Low</text>
+
+                    <!-- Interest scale -->
+                    <text x="80" y="370" font-size="10" fill="#64748b">Low</text>
+                    <text x="285" y="370" font-size="10" fill="#64748b">Medium</text>
+                    <text x="510" y="370" font-size="10" fill="#64748b">High</text>
+
+                    <!-- Stakeholder points -->
+                    <circle cx="480" cy="100" r="8" fill="#ef4444"/><text x="490" y="95" font-size="9" fill="#1e293b">Instructor</text>
+                    <circle cx="450" cy="180" r="6" fill="#f59e0b"/><text x="460" y="175" font-size="9" fill="#1e293b">Classmates</text>
+                    <circle cx="300" cy="180" r="6" fill="#f59e0b"/><text x="310" y="175" font-size="9" fill="#1e293b">IT Club</text>
+                    <circle cx="280" cy="160" r="6" fill="#f59e0b"/><text x="290" y="155" font-size="9" fill="#1e293b">Library</text>
+                    <circle cx="480" cy="280" r="6" fill="#10b981"/><text x="490" y="275" font-size="9" fill="#1e293b">Social Media</text>
+                    <circle cx="280" cy="280" r="6" fill="#64748b"/><text x="290" y="275" font-size="9" fill="#1e293b">Family/Friends</text>
+                    <circle cx="320" cy="300" r="6" fill="#64748b"/><text x="330" y="295" font-size="9" fill="#1e293b">Community</text>
+                    <circle cx="150" cy="160" r="6" fill="#64748b"/><text x="90" y="155" font-size="9" fill="#1e293b">Safety Blogs</text>
+
+                    <!-- Legend -->
+                    <rect x="460" y="20" width="120" height="60" fill="#f8fafc" stroke="#e2e8f0" rx="4"/>
+                    <text x="520" y="35" text-anchor="middle" font-size="10" font-weight="600" fill="#1e293b">Legend</text>
+                    <circle cx="475" cy="45" r="4" fill="#ef4444"/><text x="485" y="48" font-size="8" fill="#1e293b">High Priority</text>
+                    <circle cx="475" cy="58" r="4" fill="#f59e0b"/><text x="485" y="61" font-size="8" fill="#1e293b">Medium Priority</text>
+                    <circle cx="475" cy="71" r="4" fill="#10b981"/><text x="485" y="74" font-size="8" fill="#1e293b">Low Priority</text>
                   </svg>
                 </div>
               </div>
             </div>
           </details>
 
-          <!-- Deliverables (Collapsed with Summary) -->
-          <details class="card" data-title="📝 6. Deliverables">
+          <!-- 6. Deliverables chart (collapsed; summary auto-fills) -->
+          <details class="card" data-title="📝 6.Deliverables chart">
             <summary>
-              <span class="title">📝 6. Deliverables</span>
+              <span class="title">📝 6.Deliverables chart</span>
               <span class="summary-meta" id="deliverablesSummary">Summary loading…</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="deliverables-body">
+            <div class="section-body">
               <div class="deliverables-chart">
                 <table class="deliverable-table" aria-label="Deliverables">
                   <thead>
@@ -418,17 +484,16 @@
             </div>
           </details>
 
-          <!-- Budget (Collapsed with Summary) -->
-          <details class="card" data-title="💰 7. Budget Estimate">
+          <!-- 7. Budget Estimate (collapsed; summary auto-fills) -->
+          <details class="card" data-title="💰 7.Budget Estimate">
             <summary>
-              <span class="title">💰 7. Budget Estimate</span>
+              <span class="title">💰 7.Budget Estimate</span>
               <span class="summary-meta" id="budgetSummary">Summary loading…</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="budget-body">
+            <div class="section-body">
               <div class="budget-card">
-                <h3>💰 7. Budget Estimate</h3>
+                <h3>💰 7.Budget Estimate</h3>
                 <div style="overflow-x:auto;">
                   <table class="budget-table" aria-label="Budget">
                     <thead>
@@ -498,15 +563,14 @@
             </div>
           </details>
 
-          <!-- Methodology & Tools (Collapsed) -->
+          <!-- Project Methodology & Tools -->
           <details class="card" data-title="🛠️ Project Methodology & Tools">
             <summary>
               <span class="title">🛠️ Project Methodology & Tools</span>
               <span class="summary-meta">Approach & tooling</span>
-              <span class="toggle-hint" data-hint>Click to expand</span>
               <span class="chev">▾</span>
             </summary>
-            <div class="section-body" id="methodology-body">
+            <div class="section-body">
               <div class="placeholder">
                 <h4>Project Methodology Explanation:</h4>
                 <p>For my cybersecurity guide project, I chose a <strong>Predictive Methodology</strong>. This method works well because the tasks and goals are clear from the start. It helps me plan everything step by step and finish on time.</p>
@@ -514,10 +578,60 @@
 
               <div class="placeholder">
                 <h4>Project Methodology Diagram:</h4>
-                <!-- (SVG unchanged) -->
                 <p>The diagram below shows how the Predictive method is used in this project:</p>
                 <svg width="100%" height="300" viewBox="0 0 800 300" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white;">
-                  <!-- (keep your existing diagram content) -->
+                  <!-- Phase boxes -->
+                  <rect x="20" y="100" width="120" height="60" fill="#2563eb" stroke="#1d4ed8" stroke-width="2" rx="8"/>
+                  <text x="80" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="600">INITIATION</text>
+                  <text x="80" y="140" text-anchor="middle" fill="white" font-size="10">Charter & Planning</text>
+
+                  <rect x="170" y="100" width="120" height="60" fill="#10b981" stroke="#059669" stroke-width="2" rx="8"/>
+                  <text x="230" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="600">PLANNING</text>
+                  <text x="230" y="140" text-anchor="middle" fill="white" font-size="10">Scope & Resources</text>
+
+                  <rect x="320" y="100" width="120" height="60" fill="#f59e0b" stroke="#d97706" stroke-width="2" rx="8"/>
+                  <text x="380" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="600">EXECUTION</text>
+                  <text x="380" y="140" text-anchor="middle" fill="white" font-size="10">Create & Build</text>
+
+                  <rect x="470" y="100" width="120" height="60" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2" rx="8"/>
+                  <text x="530" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="600">MONITORING</text>
+                  <text x="530" y="140" text-anchor="middle" fill="white" font-size="10">Track Progress</text>
+
+                  <rect x="620" y="100" width="120" height="60" fill="#ef4444" stroke="#dc2626" stroke-width="2" rx="8"/>
+                  <text x="680" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="600">CLOSING</text>
+                  <text x="680" y="140" text-anchor="middle" fill="white" font-size="10">Deliver & Review</text>
+
+                  <!-- Arrows -->
+                  <path d="M 140 130 L 170 130" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                  <path d="M 290 130 L 320 130" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                  <path d="M 440 130 L 470 130" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                  <path d="M 590 130 L 620 130" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+                  <!-- Arrow marker -->
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+                    </marker>
+                  </defs>
+
+                  <!-- Title -->
+                  <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="600" fill="#1e293b">Predictive Project Management Methodology</text>
+
+                  <!-- Deliverables timeline -->
+                  <text x="80" y="200" text-anchor="middle" font-size="10" fill="#64748b">Oct 15</text>
+                  <text x="80" y="215" text-anchor="middle" font-size="9" fill="#64748b">Assessment Tool</text>
+
+                  <text x="230" y="200" text-anchor="middle" font-size="10" fill="#64748b">Oct 30</text>
+                  <text x="230" y="215" text-anchor="middle" font-size="9" fill="#64748b">Content Library</text>
+
+                  <text x="380" y="200" text-anchor="middle" font-size="10" fill="#64748b">Nov 15</text>
+                  <text x="380" y="215" text-anchor="middle" fill="#64748b">Website Platform</text>
+
+                  <text x="530" y="200" text-anchor="middle" font-size="10" fill="#64748b">Nov 25</text>
+                  <text x="530" y="215" text-anchor="middle" fill="#64748b">User Feedback</text>
+
+                  <text x="680" y="200" text-anchor="middle" font-size="10" fill="#64748b">Dec 1</text>
+                  <text x="680" y="215" text-anchor="middle" fill="#64748b">Impact Docs</text>
                 </svg>
               </div>
 
@@ -546,40 +660,104 @@
             </div>
           </details>
 
-          <!-- Peer Feedback (includes your short paragraph) -->
-          <section class="card" id="peer-feedback">
-            <summary style="display:none"></summary>
-            <div class="section-body">
-              <h2>Peer Feedback (Non-Classmates)</h2>
-              <p class="placeholder">
-                I showed my charter to <strong>Griesla and Andrew</strong>. They told me the sections should be easy to <strong>collapse and expand</strong>, and that I should <strong>add a short summary</strong> to each collapsed section so users can decide if they want to open the details. I updated the page to support collapse/expand and added clear one-line summaries.
-              </p>
-            </div>
-          </section>
+        </section>
+      </main>
+    </div>
+  </div>
 
-          <!-- Rubric Alignment (unchanged) -->
-          <section class="card" id="rubric">
-            <summary style="display:none"></summary>
-            <div class="section-body">
-              <h2>Rubric Alignment</h2>
-              <div class="scope-grid">
-                <div class="scope-card">
-                  <h4>Mission/Vision → Project Goal → Deliverables</h4>
-                  <p class="note">The charter reads top-down: the goal (Project Title & Description) is expanded by default; supporting artifacts are collapsed with concise summaries.</p>
-                </div>
-                <div class="scope-card">
-                  <h4>Artifacts Checklist</h4>
-                  <ul>
-                    <li>Scope</li>
-                    <li>Stakeholder Register</li>
-                    <li>Budget Estimation</li>
-                    <li>Deliverables (Definition of Done, tasks, dependencies, estimates)</li>
-                    <li>Methodology Diagram + Justification</li>
-                    <li>Project Tool Selection + Justification</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
+  <button class="top" id="toTop" aria-label="Back to top">↑</button>
 
- 
+  <script>
+    // --------- Build Table of Contents from details[data-title] ---------
+    const toc = document.getElementById('toc');
+    const sections = [...document.querySelectorAll('details.card')];
+
+    sections.forEach((sec, i) => {
+      const title = sec.getAttribute('data-title') || sec.querySelector('.title')?.textContent?.trim() || `Section ${i+1}`;
+      const id = `sec-${i+1}`;
+      sec.id = id;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.innerHTML = `<span class="idx">${i+1}</span><span>${title}</span>`;
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+
+    // Highlight active TOC item on scroll
+    const links = [...toc.querySelectorAll('a')];
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        const idx = sections.indexOf(e.target);
+        if(e.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[idx]) links[idx].classList.add('active');
+        }
+      })
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(s=>observer.observe(s));
+
+    // Expand/Collapse all controls
+    document.getElementById('expandAll').addEventListener('click', ()=> sections.forEach(s=> s.open = true));
+    document.getElementById('collapseAll').addEventListener('click', ()=> sections.forEach(s=> s.open = false));
+
+    // High contrast
+    const hc = document.getElementById('highContrastToggle');
+    if(hc){ hc.addEventListener('change', e => document.body.classList.toggle('high-contrast', e.target.checked)); }
+
+    // Back-to-top button + progress bar
+    const topBtn = document.getElementById('toTop');
+    topBtn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const progressEl = document.querySelector('.progress');
+    const onScroll = () => {
+      const y = window.scrollY;
+      topBtn.classList.toggle('show', y > 320);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = Math.max(0, Math.min(1, y / max));
+      progressEl.style.transform = `scaleX(${pct})`;
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Keyboard accessibility for <summary>
+    document.querySelectorAll('details > summary').forEach(s => {
+      s.setAttribute('role','button');
+      s.setAttribute('aria-expanded', s.parentElement.open);
+      s.addEventListener('click', ()=> s.setAttribute('aria-expanded', s.parentElement.open));
+      s.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); s.click(); }
+      });
+    });
+
+    // ---------- Auto-summaries ----------
+    // Budget: rough total + line item count
+    (function(){
+      const budgetSec = document.querySelector('#budgetSummary')?.closest('details');
+      if(!budgetSec) return;
+      const meta = document.getElementById('budgetSummary');
+      const text = (budgetSec.querySelector('.section-body')?.innerText || '');
+      const amounts = (text.match(/[$€£]?\s?([\d,]+\.?\d*)/g)||[])
+        .map(s=>parseFloat(s.replace(/[^\d.]/g,'')))
+        .filter(n=>!isNaN(n));
+      let total = 0;
+      if(amounts.length){ total = amounts.reduce((a,b)=>a+b,0); }
+      const rows = budgetSec.querySelectorAll('table.budget-table tbody tr').length;
+      const hint = rows ? rows + ' rows' : 'budget overview';
+      if(meta){ meta.textContent = (total>0? `~$${Math.round(total).toLocaleString()}` : '—') + ` · ${hint}`; }
+    })();
+
+    // Deliverables: count rows + sum hours (if any "hours/hrs" strings exist)
+    (function(){
+      const delivSec = document.querySelector('#deliverablesSummary')?.closest('details');
+      if(!delivSec) return;
+      const meta = document.getElementById('deliverablesSummary');
+      const rows = delivSec.querySelectorAll('table.deliverable-table tbody tr').length;
+      const text = (delivSec.querySelector('.section-body')?.innerText || '');
+      const hrs = (text.match(/(\d+)(?:\s?hours?|\s?hrs?)/gi)||[]).map(s=>parseInt(s,10)).filter(Boolean);
+      const totalHrs = hrs.reduce((a,b)=>a+b,0);
+      if(meta){ meta.textContent = `${rows||0} deliverables · ${totalHrs? totalHrs+' hrs est.':'est. N/A'}`; }
+    })();
+  </script>
+</body>
+</html>
+
