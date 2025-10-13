@@ -758,7 +758,7 @@
       if(meta){ meta.textContent = `${rows||0} deliverables · ${totalHrs? totalHrs+' hrs est.':'est. N/A'}`; }
     })();
   </script>
- <!-- Status Reports -->
+<!-- Status Reports -->
 <details class="card" data-title="📊 Status Reports">
   <summary><span class="title">📊 Status Reports</span><span class="chev">▾</span></summary>
   <div class="section-body">
@@ -793,6 +793,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- Green row -->
         <tr>
           <td>1</td>
           <td><!-- e.g., 2025-09-08 -->&mdash;</td>
@@ -812,25 +813,10 @@
           </td>
           <td>None at this time.</td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>&mdash;</td>
-          <td class="rag yellow">Yellow</td>
-          <td>Schedule in progress; minor dependency on library research turnaround.</td>
-          <td>
-            <ul>
-              <li>Built deliverables chart</li>
-              <li>Gathered sources for phishing section</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li>Draft password management content</li>
-              <li>Design first checklist</li>
-            </ul>
-          </td>
-          <td>Awaiting 2 sources from School Library.</td>
-        </tr>
+
+        <!-- (Yellow row removed as requested) -->
+
+        <!-- Green row -->
         <tr>
           <td>3</td>
           <td>&mdash;</td>
@@ -853,19 +839,6 @@
       </tbody>
     </table>
 
-    <div class="note-small">
-      <strong>How to update each week:</strong> duplicate the last row, update <span class="pill">Week</span>, <span class="pill">Date</span>, and adjust <span class="pill">RAG</span> (Green / Yellow / Red) with a one–sentence summary and bullet points.
-    </div>
-
-    <div class="placeholder" style="margin-top:12px;">
-      <h4>Iteration Log (optional)</h4>
-      <p>Use this space to note changes to the Project Charter (scope, dates, deliverables) and the reason for each change.</p>
-      <ul>
-        <li><strong>Change:</strong> &mdash; <strong>Reason:</strong> &mdash; <strong>Date:</strong> &mdash;</li>
-      </ul>
-    </div>
-  </div>
-</details>
 
 </body>
 </html>
