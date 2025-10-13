@@ -668,13 +668,18 @@
   <button class="top" id="toTop" aria-label="Back to top">↑</button>
 
   <script>
+    <script>
+     }); // end DOMContentLoaded
+
+document.addEventListener('DOMContentLoaded', () => {
     // --------- Build Table of Contents from details[data-title] ---------
+
     const toc = document.getElementById('toc');
     const sections = [...document.querySelectorAll('details.card')];
 
     sections.forEach((sec, i) => {
-      const title = sec.getAttribute('data-title') || sec.querySelector('.title')?.textContent?.trim() || `Section ${i+1}`;
-      const id = `sec-${i+1}`;
+      const tit = le = sec.getAttribute('data-title') || sec.querySelector('.title')?.textContent?.trim() || `Section ${i+1}`;
+      const id = sec.id || `sec-${i+1}`;
      if (!sec.id) sec.id = id;
       const li = document.createElement('li');
       const a = document.createElement('a');
