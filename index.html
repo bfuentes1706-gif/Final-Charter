@@ -668,178 +668,73 @@
   <button class="top" id="toTop" aria-label="Back to top">↑</button>
 
   <script>
-   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // --------- Build Table of Contents from details[data-title] ---------
-  const toc = document.getElementById('toc');
-  const sections = Array.from(document.querySelectorAll('#sections > details.card'));
+ <script>
+    // --------- Build Table of Contents from details[data-title] ---------
+    const toc = document.getElementById('toc');
+    const sections = [...document.querySelectorAll('details.card')];
 
-  sections.forEach((sec, i) => {
-    const title = sec.getAttribute('data-title') ||
-                  sec.querySelector('.title')?.textContent?.trim() ||
-                  `Section ${i+1}`;
-    const id = sec.id || `sec-${i+1}`;
-    if (!sec.id) sec.id = id;
-
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = `#${id}`;
-    a.innerHTML = `<span class="idx">${i+1}</span><span>${title}</span>`;
-    li.appendChild(a);
-    toc.appendChild(li);
-  });
-
-  // Highlight active TOC item on scroll
-  const links = Array.from(toc.querySelectorAll('a'));
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const idx = sections.indexOf(entry.target);
-      if (entry.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        if (links[idx]) links[idx].classList.add('active');
-      }
+    sections.forEach((sec, i) => {
+      const title = sec.getAttribute('data-title') || sec.querySelector('.title')?.textContent?.trim() || `Section ${i+1}`;
+      const id = `sec-${i+1}`;
+      sec.id = id;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.innerHTML = `<span class="idx">${i+1}</span><span>${title}</span>`;
+      li.appendChild(a);
+      toc.appendChild(li);
     });
-  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-  sections.forEach(s => observer.observe(s));
 
-  // Expand/Collapse all controls
-  document.getElementById('expandAll')
-    .addEventListener('click', () => sections.forEach(s => s.open = true));
-  document.getElementById('collapseAll')
-    .addEventListener('click', () => sections.forEach(s => s.open = false));
+    // Highlight active TOC item on scroll
+    const links = [...toc.querySelectorAll('a')];
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        const idx = sections.indexOf(e.target);
+        if(e.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          if (links[idx]) links[idx].classList.add('active');
+        }
+      })
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(s=>observer.observe(s));
 
-  // High contrast
-  const hc = document.getElementById('highContrastToggle');
-  if (hc) hc.addEventListener('change', e =>
-    document.body.classList.toggle('high-contrast', e.target.checked)
-  );
+    // Expand/Collapse all controls
+    document.getElementById('expandAll').addEventListener('click', ()=> sections.forEach(s=> s.open = true));
+    document.getElementById('collapseAll').addEventListener('click', ()=> sections.forEach(s=> s.open = false));
 
-  // Back-to-top button + progress bar
-  const topBtn = document.getElementById('toTop');
-  const progressEl = document.querySelector('.progress');
-  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  const onScroll = () => {
-    const y = window.scrollY;
-    topBtn.classList.toggle('show', y > 320);
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = Math.max(0, Math.min(1, y / max));
-    progressEl.style.transform = `scaleX(${pct})`;
-  };
-  document.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+    // Smooth scroll for anchor nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({ behavior:'smooth', block:'start' }); }
+      })
+    });
 
-  // ---------- Auto-summaries ----------
-  // Budget: rough total + line item count
-  (function(){
-    const budgetSec = document.querySelector('#budgetSummary')?.closest('details');
-    if(!budgetSec) return;
-    const meta = document.getElementById('budgetSummary');
-    const text = (budgetSec.querySelector('.section-body')?.innerText || '');
-    const amounts = (text.match(/[$€£]?\s?([\d,]+\.?\d*)/g)||[])
-      .map(s=>parseFloat(s.replace(/[^\d.]/g,'')))
-      .filter(n=>!isNaN(n));
-    let total = 0;
-    if(amounts.length){ total = amounts.reduce((a,b)=>a+b,0); }
-    const rows = budgetSec.querySelectorAll('table.budget-table tbody tr').length;
-    const hint = rows ? rows + ' rows' : 'budget overview';
-    if(meta){ meta.textContent = (total>0? `~$${Math.round(total).toLocaleString()}` : '—') + ` · ${hint}`; }
-  })();
+    // Back-to-top button + progress bar
+    const topBtn = document.getElementById('toTop');
+    topBtn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const progressEl = document.querySelector('.progress');
+    const onScroll = () => {
+      const y = window.scrollY;
+      const show = y > 320;
+      topBtn.classList.toggle('show', show);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = Math.max(0, Math.min(1, y / max));
+      progressEl.style.transform = `scaleX(${pct})`;
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-  // Deliverables: count rows + sum hours (if any "hours/hrs" strings exist)
-  (function(){
-    const delivSec = document.querySelector('#deliverablesSummary')?.closest('details');
-    if(!delivSec) return;
-    const meta = document.getElementById('deliverablesSummary');
-    const rows = delivSec.querySelectorAll('table.deliverable-table tbody tr').length;
-    const text = (delivSec.querySelector('.section-body')?.innerText || '');
-    const hrs = (text.match(/(\d+)(?:\s?hours?|\s?hrs?)/gi)||[]).map(s=>parseInt(s,10)).filter(Boolean);
-    const totalHrs = hrs.reduce((a,b)=>a+b,0);
-    if(meta){ meta.textContent = `${rows||0} deliverables · ${totalHrs? totalHrs+' hrs est.':'est. N/A'}`; }
-  })();
-});
-</script>
-
-   
-     <!-- Status Reports -->
-<details id="status-reports" class="card" data-title="📊 Status Reports">
-  <summary><span class="title">📊 Status Reports</span><span class="chev">▾</span></summary>
-  <div class="section-body">
-    <div class="placeholder">
-      <h3>Combined Project Charter Iteration + Weekly Status</h3>
-      <p>Going forward, this section consolidates <em>Project Charter iterations</em> and <em>weekly status submissions</em> in one place.</p>
-    </div>
-
-    <style>
-      .status-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-      .status-table th, .status-table td { border: 1px solid #e2e8f0; padding: 10px; vertical-align: top; text-align: left; }
-      .status-table th { background: #f1f5f9; font-weight: 700; }
-      .status-table tr:nth-child(even) { background: #f9fafb; }
-      .rag { font-weight: 700; }
-      .rag.green { color: #15803d; }
-      .note-small { font-size: 0.9rem; color: #475569; margin-top: 6px; }
-      .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #e2e8f0; background:#fff; }
-    </style>
-
-    <table class="status-table">
-      <thead>
-        <tr>
-          <th style="width:70px;">Week</th>
-          <th style="width:120px;">Date</th>
-          <th style="width:80px;">RAG</th>
-          <th>Overall Status Summary</th>
-          <th>Accomplishments</th>
-          <th>Next Week Focus</th>
-          <th>Risks / Blocks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>&mdash;</td>
-          <td class="rag green">Green</td>
-          <td>Project kickoff complete; scope and initial deliverables confirmed.</td>
-          <td>
-            <ul>
-              <li>Drafted charter sections 1–3</li>
-              <li>Initial stakeholder list</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li>Create detailed schedule</li>
-              <li>Start outline of the guide</li>
-            </ul>
-          </td>
-          <td>None at this time.</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>&mdash;</td>
-          <td class="rag green">Green</td>
-          <td>On track; prototype drafting underway.</td>
-          <td>
-            <ul>
-              <li>Completed outline</li>
-              <li>Started visuals in Canva</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li>Draft prototype pages</li>
-              <li>Collect peer feedback</li>
-            </ul>
-          </td>
-          <td>Timeboxing needed for design work.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="note-small">
-      <strong>How to update each week:</strong> duplicate the last row and update
-      <span class="pill">Week</span>, <span class="pill">Date</span>, and <span class="pill">RAG</span>.
-    </div>
-  </div>
-</details>
+    // Keyboard accessibility: toggle with Enter/Space on summary
+    document.querySelectorAll('details > summary').forEach(s => {
+      s.setAttribute('role','button');
+      s.setAttribute('aria-expanded', s.parentElement.open);
+      s.addEventListener('click', ()=> s.setAttribute('aria-expanded', s.parentElement.open));
+      s.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); s.click(); }
+      });
+    });
 
 
  
