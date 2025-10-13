@@ -668,108 +668,105 @@
   <button class="top" id="toTop" aria-label="Back to top">↑</button>
 
   <script>
-    <script>
-     }); // end DOMContentLoaded
-
+   <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // --------- Build Table of Contents from details[data-title] ---------
+  // --------- Build Table of Contents from details[data-title] ---------
+  const toc = document.getElementById('toc');
+  const sections = Array.from(document.querySelectorAll('#sections > details.card'));
 
-    const toc = document.getElementById('toc');
-    const sections = [...document.querySelectorAll('details.card')];
+  sections.forEach((sec, i) => {
+    const title = sec.getAttribute('data-title') ||
+                  sec.querySelector('.title')?.textContent?.trim() ||
+                  `Section ${i+1}`;
+    const id = sec.id || `sec-${i+1}`;
+    if (!sec.id) sec.id = id;
 
-    sections.forEach((sec, i) => {
-      const tit = le = sec.getAttribute('data-title') || sec.querySelector('.title')?.textContent?.trim() || `Section ${i+1}`;
-      const id = sec.id || `sec-${i+1}`;
-     if (!sec.id) sec.id = id;
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = `#${id}`;
-      a.innerHTML = `<span class="idx">${i+1}</span><span>${title}</span>`;
-      li.appendChild(a);
-      toc.appendChild(li);
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `#${id}`;
+    a.innerHTML = `<span class="idx">${i+1}</span><span>${title}</span>`;
+    li.appendChild(a);
+    toc.appendChild(li);
+  });
+
+  // Highlight active TOC item on scroll
+  const links = Array.from(toc.querySelectorAll('a'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = sections.indexOf(entry.target);
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        if (links[idx]) links[idx].classList.add('active');
+      }
     });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+  sections.forEach(s => observer.observe(s));
 
-    // Highlight active TOC item on scroll
-    const links = [...toc.querySelectorAll('a')];
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        const idx = sections.indexOf(e.target);
-        if(e.isIntersecting){
-          links.forEach(l=>l.classList.remove('active'));
-          if (links[idx]) links[idx].classList.add('active');
-        }
-      })
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-    sections.forEach(s=>observer.observe(s));
+  // Expand/Collapse all controls
+  document.getElementById('expandAll')
+    .addEventListener('click', () => sections.forEach(s => s.open = true));
+  document.getElementById('collapseAll')
+    .addEventListener('click', () => sections.forEach(s => s.open = false));
 
-    // Expand/Collapse all controls
-    document.getElementById('expandAll').addEventListener('click', ()=> sections.forEach(s=> s.open = true));
-    document.getElementById('collapseAll').addEventListener('click', ()=> sections.forEach(s=> s.open = false));
+  // High contrast
+  const hc = document.getElementById('highContrastToggle');
+  if (hc) hc.addEventListener('change', e =>
+    document.body.classList.toggle('high-contrast', e.target.checked)
+  );
 
-    // High contrast
-    const hc = document.getElementById('highContrastToggle');
-    if(hc){ hc.addEventListener('change', e => document.body.classList.toggle('high-contrast', e.target.checked)); }
+  // Back-to-top button + progress bar
+  const topBtn = document.getElementById('toTop');
+  const progressEl = document.querySelector('.progress');
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  const onScroll = () => {
+    const y = window.scrollY;
+    topBtn.classList.toggle('show', y > 320);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.max(0, Math.min(1, y / max));
+    progressEl.style.transform = `scaleX(${pct})`;
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-    // Back-to-top button + progress bar
-    const topBtn = document.getElementById('toTop');
-    topBtn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
-    const progressEl = document.querySelector('.progress');
-    const onScroll = () => {
-      const y = window.scrollY;
-      topBtn.classList.toggle('show', y > 320);
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = Math.max(0, Math.min(1, y / max));
-      progressEl.style.transform = `scaleX(${pct})`;
-    };
-    document.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  // ---------- Auto-summaries ----------
+  // Budget: rough total + line item count
+  (function(){
+    const budgetSec = document.querySelector('#budgetSummary')?.closest('details');
+    if(!budgetSec) return;
+    const meta = document.getElementById('budgetSummary');
+    const text = (budgetSec.querySelector('.section-body')?.innerText || '');
+    const amounts = (text.match(/[$€£]?\s?([\d,]+\.?\d*)/g)||[])
+      .map(s=>parseFloat(s.replace(/[^\d.]/g,'')))
+      .filter(n=>!isNaN(n));
+    let total = 0;
+    if(amounts.length){ total = amounts.reduce((a,b)=>a+b,0); }
+    const rows = budgetSec.querySelectorAll('table.budget-table tbody tr').length;
+    const hint = rows ? rows + ' rows' : 'budget overview';
+    if(meta){ meta.textContent = (total>0? `~$${Math.round(total).toLocaleString()}` : '—') + ` · ${hint}`; }
+  })();
 
-    // Keyboard accessibility for <summary>
-    document.querySelectorAll('details > summary').forEach(s => {
-      s.setAttribute('role','button');
-      s.setAttribute('aria-expanded', s.parentElement.open);
-      s.addEventListener('click', ()=> s.setAttribute('aria-expanded', s.parentElement.open));
-      s.addEventListener('keydown', (e)=>{
-        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); s.click(); }
-      });
-    });
+  // Deliverables: count rows + sum hours (if any "hours/hrs" strings exist)
+  (function(){
+    const delivSec = document.querySelector('#deliverablesSummary')?.closest('details');
+    if(!delivSec) return;
+    const meta = document.getElementById('deliverablesSummary');
+    const rows = delivSec.querySelectorAll('table.deliverable-table tbody tr').length;
+    const text = (delivSec.querySelector('.section-body')?.innerText || '');
+    const hrs = (text.match(/(\d+)(?:\s?hours?|\s?hrs?)/gi)||[]).map(s=>parseInt(s,10)).filter(Boolean);
+    const totalHrs = hrs.reduce((a,b)=>a+b,0);
+    if(meta){ meta.textContent = `${rows||0} deliverables · ${totalHrs? totalHrs+' hrs est.':'est. N/A'}`; }
+  })();
+});
+</script>
 
-    // ---------- Auto-summaries ----------
-    // Budget: rough total + line item count
-    (function(){
-      const budgetSec = document.querySelector('#budgetSummary')?.closest('details');
-      if(!budgetSec) return;
-      const meta = document.getElementById('budgetSummary');
-      const text = (budgetSec.querySelector('.section-body')?.innerText || '');
-      const amounts = (text.match(/[$€£]?\s?([\d,]+\.?\d*)/g)||[])
-        .map(s=>parseFloat(s.replace(/[^\d.]/g,'')))
-        .filter(n=>!isNaN(n));
-      let total = 0;
-      if(amounts.length){ total = amounts.reduce((a,b)=>a+b,0); }
-      const rows = budgetSec.querySelectorAll('table.budget-table tbody tr').length;
-      const hint = rows ? rows + ' rows' : 'budget overview';
-      if(meta){ meta.textContent = (total>0? `~$${Math.round(total).toLocaleString()}` : '—') + ` · ${hint}`; }
-    })();
-
-    // Deliverables: count rows + sum hours (if any "hours/hrs" strings exist)
-    (function(){
-      const delivSec = document.querySelector('#deliverablesSummary')?.closest('details');
-      if(!delivSec) return;
-      const meta = document.getElementById('deliverablesSummary');
-      const rows = delivSec.querySelectorAll('table.deliverable-table tbody tr').length;
-      const text = (delivSec.querySelector('.section-body')?.innerText || '');
-      const hrs = (text.match(/(\d+)(?:\s?hours?|\s?hrs?)/gi)||[]).map(s=>parseInt(s,10)).filter(Boolean);
-      const totalHrs = hrs.reduce((a,b)=>a+b,0);
-      if(meta){ meta.textContent = `${rows||0} deliverables · ${totalHrs? totalHrs+' hrs est.':'est. N/A'}`; }
-    })();
-  </script>
-<!-- Status Reports -->
+   
+     <!-- Status Reports -->
 <details id="status-reports" class="card" data-title="📊 Status Reports">
   <summary><span class="title">📊 Status Reports</span><span class="chev">▾</span></summary>
   <div class="section-body">
     <div class="placeholder">
       <h3>Combined Project Charter Iteration + Weekly Status</h3>
-      <p>Going forward, this section consolidates <em>Project Charter iterations</em> and <em>weekly status submissions</em> in one place. Add a new row each week and keep notes brief and action-oriented.</p>
+      <p>Going forward, this section consolidates <em>Project Charter iterations</em> and <em>weekly status submissions</em> in one place.</p>
     </div>
 
     <style>
@@ -779,8 +776,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .status-table tr:nth-child(even) { background: #f9fafb; }
       .rag { font-weight: 700; }
       .rag.green { color: #15803d; }
-      .rag.yellow { color: #a16207; }
-      .rag.red { color: #b91c1c; }
       .note-small { font-size: 0.9rem; color: #475569; margin-top: 6px; }
       .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #e2e8f0; background:#fff; }
     </style>
@@ -798,10 +793,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </tr>
       </thead>
       <tbody>
-        <!-- Green -->
         <tr>
           <td>1</td>
-          <td><!-- e.g., 2025-09-08 -->&mdash;</td>
+          <td>&mdash;</td>
           <td class="rag green">Green</td>
           <td>Project kickoff complete; scope and initial deliverables confirmed.</td>
           <td>
@@ -818,8 +812,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </td>
           <td>None at this time.</td>
         </tr>
-
-        <!-- Green -->
         <tr>
           <td>3</td>
           <td>&mdash;</td>
@@ -842,10 +834,21 @@ document.addEventListener('DOMContentLoaded', () => {
       </tbody>
     </table>
 
-   
+    <div class="note-small">
+      <strong>How to update each week:</strong> duplicate the last row and update
+      <span class="pill">Week</span>, <span class="pill">Date</span>, and <span class="pill">RAG</span>.
     </div>
   </div>
 </details>
+
+
+ 
+
+         
+         
+             
+   
+    
 
 </body>
 </html>
