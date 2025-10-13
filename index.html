@@ -675,7 +675,7 @@
     sections.forEach((sec, i) => {
       const title = sec.getAttribute('data-title') || sec.querySelector('.title')?.textContent?.trim() || `Section ${i+1}`;
       const id = `sec-${i+1}`;
-      sec.id = id;
+     if (!sec.id) sec.id = id;
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.href = `#${id}`;
@@ -759,7 +759,7 @@
     })();
   </script>
 <!-- Status Reports -->
-<details class="card" data-title="📊 Status Reports">
+<details id="status-reports" class="card" data-title="📊 Status Reports">
   <summary><span class="title">📊 Status Reports</span><span class="chev">▾</span></summary>
   <div class="section-body">
     <div class="placeholder">
@@ -793,7 +793,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Green row -->
+        <!-- Green -->
         <tr>
           <td>1</td>
           <td><!-- e.g., 2025-09-08 -->&mdash;</td>
@@ -814,9 +814,7 @@
           <td>None at this time.</td>
         </tr>
 
-        <!-- (Yellow row removed as requested) -->
-
-        <!-- Green row -->
+        <!-- Green -->
         <tr>
           <td>3</td>
           <td>&mdash;</td>
@@ -839,6 +837,10 @@
       </tbody>
     </table>
 
+   
+    </div>
+  </div>
+</details>
 
 </body>
 </html>
