@@ -314,34 +314,34 @@ This project will also act as a career development tool by showcasing my ability
                     <tr>
                       <td class="Stakeholder">Instructor</td>
                       <td class="Category">Internal</td>
-                      <td class="Role/Interest">Provide guidance and sets evaluation criteria </td>
+                      <td class="Role/Interest">Provides guidance, evaluates project progress and quality.</td>
                       <td class="Power">High</td>
                       <td class="Interest">High</td>
-                      <td class="Engagment Strategy">Check in regularly and ask for feedback</td>
+                      <td class="Engagment Strategy">seek feedback for improvement.</td>
                     </tr>
                     <tr>
-                      <td>Classmates</td>
+                      <td>Classmates/Peers</td>
                       <td>Internal</td>
                       <td>Peer reviewers </td>
                       <td>Medium</td>
                       <td>High</td>
-                      <td>Share drafts and ask for feedback</td>
+                      <td>Share drafts for peer review; incorporate suggestions to enhance clarity and design.</td>
                     </tr>
                     <tr>
                       <td>Family/Friends</td>
                       <td>External</td>
-                      <td>Test audience for guide usability</td>
+                      <td>Serve as test users to evaluate ease of use and learning clarity.</td>
                       <td>Low</td>
                       <td>Medium</td>
-                      <td>Provide guide and ask for simple feedback</td>
+                      <td>Gather feedback on content clarity.</td>
                     </tr>
                     <tr>
-                      <td>School Library</td>
+                      <td>Career Advisor</td>
                       <td>Internal</td>
-                      <td>help find research sources</td>
+                      <td>Supports professional development and portfolio presentation.</td>
                       <td>Medium</td>
-                      <td>Medium</td>
-                      <td>ask for help with reliable sources when needed</td>
+                      <td>High</td>
+                      <td>Consult for resume, portfolio, and interview preparation advice.</td>
                     </tr>
                     <tr>
                       <td>IT Club</td>
@@ -352,20 +352,20 @@ This project will also act as a career development tool by showcasing my ability
                       <td>Engage closely and consult tips</td>
                     </tr>
                     <tr>
-                      <td>Social Media Followers</td>
+                      <td>Potential Employers/Recruiters</td>
                       <td>External</td>
-                      <td>Help spread awareness and provide feedback</td>
-                      <td>Low</td>
+                      <td>Interested in reviewing the website as part of the candidate portfolio.</td>
                       <td>High</td>
-                      <td>Keep informed via posts and updates</td>
+                      <td>High</td>
+                      <td>Highlight project on portfolio and LinkedIn; share during applications and interviews.</td>
                     </tr>
                     <tr>
                       <td>Online Safety Blogs</td>
                       <td>External</td>
-                      <td>Reference materials for content accuracy</td>
-                      <td>Medium</td>
+                      <td>Potential references or collaborators for cybersecurity education.</td>
                       <td>low</td>
-                      <td>use reliable references</td>
+                      <td>Medium</td>
+                      <td>Use as credible sources for content validation</td>
                     </tr>
                     <tr>
                       <td>Local Community Center</td>
@@ -373,20 +373,213 @@ This project will also act as a career development tool by showcasing my ability
                       <td>Potential group to share guide with</td>
                       <td>low</td>
                       <td>Medium</td>
-                      <td>share guide and collect feedback from community members</td>
+                      <td>Share final website and gather community feedback for improvement.</td>
                     </tr>
                   </tbody>
                 </table>
 
                 <div class="content-card" style="margin-top:12px;">
-                  <h4>Power-Interest Grid Visualization</h4>
-                  <svg width="100%" height="400" viewBox="0 0 600 400" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white;">
-                    <!-- Grid, labels, points omitted for brevity (same as your version) -->
-                    <!-- ... full SVG from your snippet ... -->
-                  </svg>
-                </div>
-              </div>
-            </div>
+  <h4>Power-Interest Grid Visualization</h4>
+  <svg width="100%" height="420" viewBox="0 0 600 420" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+    <title>Power–Interest Grid</title>
+    <desc>Scatter plot of stakeholders positioned by power (x-axis) and interest (y-axis). Quadrants: Monitor, Keep Informed, Keep Satisfied, Manage Closely.</desc>
+
+    <!-- Plot area -->
+    <defs>
+      <linearGradient id="quadTL" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#eef6ff"/>
+        <stop offset="100%" stop-color="#f7fbff"/>
+      </linearGradient>
+      <linearGradient id="quadTR" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#e8fff3"/>
+        <stop offset="100%" stop-color="#f6fffb"/>
+      </linearGradient>
+      <linearGradient id="quadBL" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fff7ed"/>
+        <stop offset="100%" stop-color="#fffaf3"/>
+      </linearGradient>
+      <linearGradient id="quadBR" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fff0f0"/>
+        <stop offset="100%" stop-color="#fff7f7"/>
+      </linearGradient>
+      <style>
+        .axis { stroke:#94a3b8; stroke-width:1; }
+        .grid { stroke:#e2e8f0; stroke-dasharray:3 3; }
+        .tick text { fill:#475569; font-size:11px; }
+        .label { fill:#0f172a; font-weight:600; font-size:12px; }
+        .quad-label { fill:#334155; font-weight:700; font-size:12px; opacity:.85; }
+        .point { stroke:#0f172a; stroke-width:0.5; }
+        .tag { fill:#0f172a; font-size:11px; }
+        .legend text { font-size:12px; fill:#334155; }
+      </style>
+    </defs>
+
+    <!-- Margins and scales -->
+    <!-- Plot area bounds -->
+    <g id="plot" transform="translate(80,40)">
+      <!-- Background quadrants (split at 50/50) -->
+      <!-- plot width = 600-80-40 = 480; height = 420-40-60 = 320 -->
+      <rect x="0" y="0" width="240" height="160" fill="url(#quadTL)"></rect>  <!-- Keep Informed -->
+      <rect x="240" y="0" width="240" height="160" fill="url(#quadTR)"></rect> <!-- Manage Closely -->
+      <rect x="0" y="160" width="240" height="160" fill="url(#quadBL)"></rect> <!-- Monitor -->
+      <rect x="240" y="160" width="240" height="160" fill="url(#quadBR)"></rect> <!-- Keep Satisfied -->
+
+      <!-- Gridlines every 10 units -->
+      <!-- Vertical -->
+      <g class="grid">
+        <!-- 0 to 480 step 48 -->
+        <line x1="48" y1="0" x2="48" y2="320"></line>
+        <line x1="96" y1="0" x2="96" y2="320"></line>
+        <line x1="144" y1="0" x2="144" y2="320"></line>
+        <line x1="192" y1="0" x2="192" y2="320"></line>
+        <line x1="240" y1="0" x2="240" y2="320"></line>
+        <line x1="288" y1="0" x2="288" y2="320"></line>
+        <line x1="336" y1="0" x2="336" y2="320"></line>
+        <line x1="384" y1="0" x2="384" y2="320"></line>
+        <line x1="432" y1="0" x2="432" y2="320"></line>
+      </g>
+      <!-- Horizontal -->
+      <g class="grid">
+        <!-- 0 to 320 step 32 -->
+        <line x1="0" y1="32" x2="480" y2="32"></line>
+        <line x1="0" y1="64" x2="480" y2="64"></line>
+        <line x1="0" y1="96" x2="480" y2="96"></line>
+        <line x1="0" y1="128" x2="480" y2="128"></line>
+        <line x1="0" y1="160" x2="480" y2="160"></line>
+        <line x1="0" y1="192" x2="480" y2="192"></line>
+        <line x1="0" y1="224" x2="480" y2="224"></line>
+        <line x1="0" y1="256" x2="480" y2="256"></line>
+        <line x1="0" y1="288" x2="480" y2="288"></line>
+      </g>
+
+      <!-- Midlines (Power 50, Interest 50) -->
+      <line x1="240" y1="0" x2="240" y2="320" stroke="#94a3b8" stroke-width="1.25"></line>
+      <line x1="0" y1="160" x2="480" y2="160" stroke="#94a3b8" stroke-width="1.25"></line>
+
+      <!-- Quadrant labels -->
+      <text x="12" y="16" class="quad-label">Keep Informed</text>
+      <text x="252" y="16" class="quad-label">Manage Closely</text>
+      <text x="12" y="176" class="quad-label">Monitor</text>
+      <text x="252" y="176" class="quad-label">Keep Satisfied</text>
+
+      <!-- Axes -->
+      <line x1="0" y1="320" x2="480" y2="320" class="axis"></line>
+      <line x1="0" y1="0" x2="0" y2="320" class="axis"></line>
+
+      <!-- Ticks & labels (0–100 every 10) -->
+      <g class="tick">
+        <!-- X ticks -->
+        <!-- position: x= (value/100)*480 -->
+        <g transform="translate(0,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">0</text></g>
+        <g transform="translate(48,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">10</text></g>
+        <g transform="translate(96,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">20</text></g>
+        <g transform="translate(144,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">30</text></g>
+        <g transform="translate(192,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">40</text></g>
+        <g transform="translate(240,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">50</text></g>
+        <g transform="translate(288,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">60</text></g>
+        <g transform="translate(336,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">70</text></g>
+        <g transform="translate(384,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">80</text></g>
+        <g transform="translate(432,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">90</text></g>
+        <g transform="translate(480,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">100</text></g>
+        <!-- Y ticks (interest) note: y goes downwards, so 100 is y=0 -->
+        <g transform="translate(0,320)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">0</text></g>
+        <g transform="translate(0,288)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">10</text></g>
+        <g transform="translate(0,256)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">20</text></g>
+        <g transform="translate(0,224)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">30</text></g>
+        <g transform="translate(0,192)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">40</text></g>
+        <g transform="translate(0,160)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">50</text></g>
+        <g transform="translate(0,128)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">60</text></g>
+        <g transform="translate(0,96)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">70</text></g>
+        <g transform="translate(0,64)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">80</text></g>
+        <g transform="translate(0,32)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">90</text></g>
+        <g transform="translate(0,0)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">100</text></g>
+      </g>
+
+      <!-- Axis titles -->
+      <text x="240" y="352" text-anchor="middle" class="label">Power (Low → High)</text>
+      <text transform="translate(-54,160) rotate(-90)" text-anchor="middle" class="label">Interest (Low → High)</text>
+
+      <!-- Legend -->
+      <g class="legend" transform="translate(300,-24)">
+        <rect x="0" y="0" width="280" height="28" rx="6" ry="6" fill="#f8fafc" stroke="#e2e8f0"/>
+        <g transform="translate(10,8)">
+          <circle r="5" fill="#10b981" class="point"></circle>
+          <text x="12" y="4">Manage Closely</text>
+        </g>
+        <g transform="translate(130,8)">
+          <circle r="5" fill="#f59e0b" class="point"></circle>
+          <text x="12" y="4">Keep Satisfied</text>
+        </g>
+        <g transform="translate(10,20)">
+          <circle r="5" fill="#3b82f6" class="point"></circle>
+        </g>
+        <g transform="translate(22,20)">
+          <text y="4">Keep Informed</text>
+        </g>
+        <g transform="translate(130,20)">
+          <circle r="5" fill="#94a3b8" class="point"></circle>
+          <text x="12" y="4">Monitor</text>
+        </g>
+      </g>
+
+      <!-- Helper: function mapping (power, interest) to (x,y)
+           x = (power/100)*480
+           y = 320 - (interest/100)*320
+      -->
+
+      <!-- Points -->
+      <!-- Manage Closely (green) -->
+      <!-- Instructor (P=90, I=90) -->
+      <g transform="translate(432,32)">
+        <circle r="6" class="point" fill="#10b981"></circle>
+        <text class="tag" x="10" y="4">Instructor</text>
+      </g>
+      <!-- Potential Employers / Recruiters (P=95, I=95) -->
+      <g transform="translate(456,16)">
+        <circle r="6" class="point" fill="#10b981"></circle>
+        <text class="tag" x="10" y="4">Employers / Recruiters</text>
+      </g>
+
+      <!-- Keep Satisfied (amber) -->
+      <!-- (none strongly here; leaving slot for future) -->
+
+      <!-- Keep Informed (blue) -->
+      <!-- Classmates / Peers (P=55, I=85) -->
+      <g transform="translate(264,72)">
+        <circle r="6" class="point" fill="#3b82f6"></circle>
+        <text class="tag" x="10" y="4">Classmates / Peers</text>
+      </g>
+      <!-- Career Counselor (P=65, I=85) -->
+      <g transform="translate(312,72)">
+        <circle r="6" class="point" fill="#3b82f6"></circle>
+        <text class="tag" x="10" y="4">Career Counselor</text>
+      </g>
+
+      <!-- Monitor (slate) -->
+      <!-- Family & Friends (P=25, I=55) -->
+      <g transform="translate(120,176)">
+        <circle r="6" class="point" fill="#94a3b8"></circle>
+        <text class="tag" x="10" y="4">Family & Friends</text>
+      </g>
+      <!-- Online Safety Blogs (P=20, I=60) -->
+      <g transform="translate(96,160)">
+        <circle r="6" class="point" fill="#94a3b8"></circle>
+        <text class="tag" x="10" y="4">Online Safety Blogs</text>
+      </g>
+      <!-- Local Community Center (P=25, I=60) -->
+      <g transform="translate(120,160)">
+        <circle r="6" class="point" fill="#94a3b8"></circle>
+        <text class="tag" x="10" y="4">Local Community Center</text>
+      </g>
+      <!-- IT Club / Student Tech Group (P=50, I=60) (borderline; placed in Monitor for simplicity) -->
+      <g transform="translate(240,160)">
+        <circle r="6" class="point" fill="#94a3b8"></circle>
+        <text class="tag" x="10" y="4">IT Club / Tech Group</text>
+      </g>
+    </g>
+  </svg>
+</div>
+
           </details>
 
           <!-- 6. Deliverables chart (collapsed; summary auto-fills) -->
