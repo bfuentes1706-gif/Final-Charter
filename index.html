@@ -802,107 +802,149 @@ This project will also act as a career development tool by showcasing my ability
 
 
 
-<!-- 8. Project Methodology & Tools (Predictive Methodology Diagram) -->
-<details class="card" data-title="🛠️ 8. Project Methodology & Tools" id="methodologyCard">
+ <!-- Project Methodology & Tools -->
+<details class="card" data-title="🛠️ Project Methodology & Tools">
   <summary>
-    <span class="title">🛠️ 8. Project Methodology & Tools</span>
-    <span class="summary-meta">Predictive • Microsoft Planner</span>
+    <span class="title">🛠️ Project Methodology & Tools</span>
+    <span class="summary-meta">Approach & tooling</span>
     <span class="chev">▾</span>
   </summary>
-
   <div class="section-body">
-    <h3>Chosen Methodology: Predictive (Waterfall)</h3>
-    <p>
-      This project uses a <strong>Predictive methodology</strong>, also known as the
-      <strong>Waterfall model</strong>. Each stage of work is completed in order — from planning and design to development and testing. 
-      This step-by-step process helps keep the project organized, clear, and on schedule. 
-      <strong>Microsoft Planner</strong> is used to plan tasks, set due dates, and track progress for each phase.
-    </p>
-
-    <h4>Predictive Methodology Diagram</h4>
-    <div class="diagram-box" style="text-align:center; margin:1em 0;">
-      <p style="font-weight:600;">Project Flow</p>
-      <p style="line-height:1.8;">
-        📘 <strong>Planning & Research</strong> →  
-        🎨 <strong>Content & Design</strong> →  
-        💻 <strong>Development</strong> →  
-        🧪 <strong>Testing & Review</strong> →  
-        🚀 <strong>Launch & Reflection</strong>
-      </p>
-      <p style="font-size:0.9em; color:gray;">(Each stage is completed before moving to the next.)</p>
+    <div class="placeholder">
+      <h4>Project Methodology Explanation:</h4>
+      <p>For my cybersecurity guide project, I chose a <strong>Predictive Methodology</strong>. This method works well because the tasks and goals are clear from the start. It helps me plan everything step by step and finish on time.</p>
     </div>
 
-    <h4>Why This Method Works</h4>
-    <ul>
-      <li>✅ Clear goals and timeline for a semester-long project.</li>
-      <li>✅ Easier to manage solo work — one step at a time.</li>
-      <li>✅ Helps track milestones and deadlines in Microsoft Planner.</li>
-      <li>✅ Reduces confusion by finishing one stage before starting another.</li>
-    </ul>
+    <div class="placeholder">
+      <h4>Project Methodology Diagram:</h4>
+      <p>The diagram below shows how the Predictive method is used in this project:</p>
 
-    <h4>Tools & Platforms</h4>
-    <div style="overflow-x:auto;">
-      <table class="budget-table" aria-label="Tools and Platforms">
-        <thead>
-          <tr>
-            <th>Tool / Platform</th>
-            <th>Purpose</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Microsoft Planner</strong></td>
-            <td>Organize project phases, tasks, and deadlines.</td>
-          </tr>
-          <tr>
-            <td>HTML, CSS, JavaScript</td>
-            <td>Build the cybersecurity learning website.</td>
-          </tr>
-          <tr>
-            <td>Visual Studio Code (VS Code)</td>
-            <td>Main tool for coding and editing.</td>
-          </tr>
-          <tr>
-            <td>GitHub Pages / Netlify</td>
-            <td>Free hosting and publishing platform.</td>
-          </tr>
-          <tr>
-            <td>Canva / Figma</td>
-            <td>Design graphics and simple layouts.</td>
-          </tr>
-          <tr>
-            <td>Google Docs / Notion</td>
-            <td>Write lessons, track ideas, and store research.</td>
-          </tr>
-          <tr>
-            <td>Cloudflare (Free)</td>
-            <td>Add HTTPS and site protection.</td>
-          </tr>
-          <tr>
-            <td>Grammarly / Hemingway</td>
-            <td>Check writing clarity and grammar.</td>
-          </tr>
-          <tr>
-            <td>LinkedIn Learning / YouTube</td>
-            <td>Quick cybersecurity refreshers.</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Accessible Predictive (Waterfall) SVG Diagram -->
+      <svg width="100%" height="300" viewBox="0 0 800 300" role="img" aria-labelledby="predTitle predDesc" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white;">
+        <title id="predTitle">Predictive (Waterfall) Project Methodology Diagram</title>
+        <desc id="predDesc">Five steps from left to right: Planning & Research, Content & Design, Development, Testing & Fixes, Launch & Reflection. Each step is a box with an arrow to the next, showing a linear flow.</desc>
+
+        <!-- Markers & Effects -->
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"></path>
+          </marker>
+          <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
+          </filter>
+          <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e2e8f0"/>
+            <stop offset="100%" stop-color="#f1f5f9"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Title Bar -->
+        <g transform="translate(20,18)">
+          <rect x="0" y="0" width="760" height="36" rx="10" ry="10" fill="url(#badgeGrad)"></rect>
+          <text x="380" y="23" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#334155">
+            Predictive Flow: finish each step, then move to the next
+          </text>
+        </g>
+
+        <!-- Lane Background -->
+        <rect x="20" y="70" width="760" height="190" rx="12" ry="12" fill="#f8fafc" stroke="#e2e8f0"></rect>
+
+        <!-- Step Cards -->
+        <!-- Card 1 -->
+        <g transform="translate(35,95)" filter="url(#cardShadow)">
+          <rect width="140" height="120" rx="12" ry="12" fill="#e0f2fe" stroke="#bae6fd"/>
+          <text x="70" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Planning</text>
+          <text x="70" y="44" text-anchor="middle" font-size="12" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">& Research</text>
+          <line x1="20" y1="62" x2="120" y2="62" stroke="#93c5fd"/>
+          <text x="70" y="82" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Goals, topics,</text>
+          <text x="70" y="98" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">timeline</text>
+        </g>
+
+        <!-- Arrow 1 -->
+        <line x1="180" y1="155" x2="210" y2="155" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+
+        <!-- Card 2 -->
+        <g transform="translate(215,95)" filter="url(#cardShadow)">
+          <rect width="140" height="120" rx="12" ry="12" fill="#e0f2fe" stroke="#bae6fd"/>
+          <text x="70" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Content</text>
+          <text x="70" y="44" text-anchor="middle" font-size="12" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">& Design</text>
+          <line x1="20" y1="62" x2="120" y2="62" stroke="#93c5fd"/>
+          <text x="70" y="82" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Write lessons,</text>
+          <text x="70" y="98" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">make visuals</text>
+        </g>
+
+        <!-- Arrow 2 -->
+        <line x1="360" y1="155" x2="390" y2="155" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+
+        <!-- Card 3 -->
+        <g transform="translate(395,95)" filter="url(#cardShadow)">
+          <rect width="140" height="120" rx="12" ry="12" fill="#e0f2fe" stroke="#bae6fd"/>
+          <text x="70" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Development</text>
+          <line x1="20" y1="46" x2="120" y2="46" stroke="#93c5fd"/>
+          <text x="70" y="68" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">HTML, CSS, JS</text>
+          <text x="70" y="84" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Add quiz</text>
+          <text x="70" y="100" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">& examples</text>
+        </g>
+
+        <!-- Arrow 3 -->
+        <line x1="540" y1="155" x2="570" y2="155" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+
+        <!-- Card 4 -->
+        <g transform="translate(575,95)" filter="url(#cardShadow)">
+          <rect width="140" height="120" rx="12" ry="12" fill="#e0f2fe" stroke="#bae6fd"/>
+          <text x="70" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Testing</text>
+          <text x="70" y="44" text-anchor="middle" font-size="12" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">& Fixes</text>
+          <line x1="20" y1="62" x2="120" y2="62" stroke="#93c5fd"/>
+          <text x="70" y="82" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">Usability,</text>
+          <text x="70" y="98" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">accessibility,</text>
+          <text x="70" y="114" text-anchor="middle" font-size="11" fill="#334155" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">security basics</text>
+        </g>
+
+        <!-- Arrow 4 to Launch -->
+        <line x1="715" y1="155" x2="740" y2="155" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+
+        <!-- Launch badge -->
+        <g transform="translate(742,147)">
+          <rect x="-46" y="-16" width="92" height="32" rx="16" ry="16" fill="#22c55e"/>
+          <text x="0" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="white" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">LAUNCH</text>
+        </g>
+
+        <!-- Footer Notes -->
+        <g transform="translate(20,270)">
+          <text x="0" y="0" font-size="11" fill="#475569" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">
+            Flow: Planning → Content & Design → Development → Testing & Fixes → Launch & Reflection
+          </text>
+          <text x="780" y="0" text-anchor="end" font-size="11" fill="#64748b" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">
+            Predictive (finish each step, then move on)
+          </text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="placeholder" style="margin-top:14px;">
+      <h4>Project Tool Selection Explanation:</h4>
+      <p>I chose <strong>Microsoft Planner</strong> to organize my project. It helps me track tasks, set deadlines, and see all my work in one place. It also makes it easy to adjust tasks if needed.</p>
+    </div>
+
+    <div class="placeholder">
+      <h4>Project Tool Screenshots:</h4>
+      <div style="display:flex; gap:15px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px;">
+          <img src="Board.png" style="width:100%; border:1px solid #ccc; border-radius:8px;" alt="Board View Screenshot">
+          <p style="text-align:center; font-size:12px; margin-top:5px;">Board View</p>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <img src="Grid.png" alt="Project Grid Screenshot" style="width:100%; border:1px solid #ccc; border-radius:8px;">
+          <p style="text-align:center; font-size:12px; margin-top:5px;">Grid View</p>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <img src="charts.png" alt="Project Chart Screenshot" style="width:100%; border:1px solid #ccc; border-radius:8px;">
+          <p style="text-align:center; font-size:12px; margin-top:5px;">Chart View</p>
+        </div>
+      </div>
     </div>
   </div>
 </details>
-
-<style>
-.diagram-box {
-  background: #f5f6f8;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-}
-.budget-table th, .budget-table td {
-  padding: .4rem .6rem;
-}
-</style>
 
 
           <!-- 📊 Status Reports (added) -->
