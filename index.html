@@ -641,7 +641,6 @@ This project will also act as a career development tool by showcasing my ability
             </summary>
             <div class="section-body">
               <div class="budget-card">
-                <h3>💰 7.Budget Estimate</h3>
                 <div style="overflow-x:auto;">
                   <table class="budget-table" aria-label="Budget">
                     <!-- full table kept exactly as in your code -->
@@ -649,75 +648,86 @@ This project will also act as a career development tool by showcasing my ability
                     <tbody</tbody>
                   </table>
                 </div>
+<details open>
+  <summary><strong>📊 Budget Estimate (Min • Mid • Max)</strong></summary>
+  <div style="padding:12px;max-width:900px;margin:auto;">
+    <canvas id="budgetEstimateChart" aria-label="Budget estimate bar chart" role="img"></canvas>
 
-                <div class="note">
-                  <strong>1. Labor and Time Investment
+    <!-- Chart.js (safe to include even if already present) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+      // Categories and min/mid/max values (USD)
+      const estCategories = [
+        "Labor",
+        "Tools & Software",
+        "Learning & Materials",
+        "Networking & Services",
+        "Contingency (12%)"
+      ];
 
-This project is primarily self-driven, requiring time for research, content development, web design, and testing.
-Using an estimated 80–100 total hours of effort at an entry-level rate of $20/hour, the total labor cost is projected between $1,600 and $2,000.
+      // Ranges based on your plan:
+      // Labor: 80–100 hrs @ $20/hr  => $1,600 – $2,000 (mid $1,800)
+      // Tools & Software: $15 – $37 (mid $25)
+      // Learning & Materials: $10 – $50 (mid $30)
+      // Networking & Services: $50 – $65 (mid $60)
+      // Contingency (12% of direct costs): min≈$201, mid≈$220, max≈$258
+      const minVals = [1600, 15, 10, 50, 201];
+      const midVals = [1800, 25, 30, 60, 220];
+      const maxVals = [2000, 37, 50, 65, 258];
 
-Role	Estimated Hours	Rate (USD/hr)	Cost Range
-Project Developer / Designer (self)	80–100	$20	$1,600 – $2,000
-2. Tools, Software & Hosting
+      const ctx2 = document.getElementById("budgetEstimateChart");
+      new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: estCategories,
+          datasets: [
+            {
+              label: "Min",
+              data: minVals,
+              backgroundColor: "#7ce0a3"
+            },
+            {
+              label: "Mid",
+              data: midVals,
+              backgroundColor: "#7aa2ff"
+            },
+            {
+              label: "Max",
+              data: maxVals,
+              backgroundColor: "#b692f6"
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          indexAxis: "y",
+          plugins: {
+            legend: { position: "bottom" },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` ${ctx.dataset.label}: $${ctx.raw.toLocaleString()}`
+              }
+            },
+            title: {
+              display: true,
+              text: "Budget Estimate by Category (USD)"
+            }
+          },
+          scales: {
+            x: {
+              ticks: {
+                callback: (val) => "$" + Number(val).toLocaleString()
+              },
+              grid: { drawBorder: false }
+            },
+            y: { grid: { display: false } }
+          }
+        }
+      });
+    </script>
+  </div>
+</details>
 
-Most tools used are freely available through student or open-source resources. Optional costs may arise if premium features or domain hosting are added.
-
-Tool / Service	Purpose	Estimated Cost
-GitHub Pages	Free website hosting platform	$0
-Visual Studio Code	Web development environment	$0
-Canva / Figma	Visual design for UI and infographics	$0–$12
-Custom Domain (optional)	Professional website URL	$15–$25
-Cloud Storage (Google Drive)	Backup and file sharing	$0
-
-Subtotal (Tools & Software): $15–$37
-
-3. Learning Resources & Materials
-
-To support high-quality content creation and accurate cybersecurity guidance, some educational and material expenses may occur.
-
-Resource	Description	Estimated Cost
-LinkedIn Learning (via CSULA)	Cybersecurity awareness & web design tutorials	$0
-Resume / Portfolio Printing	For networking or career fairs	$10–$20
-Cybersecurity Best Practice eBooks / Guides	Reference materials	$0–$30
-
-Subtotal (Learning & Materials): $10–$50
-
-4. Professional Development & Networking
-
-Attending relevant events or workshops can enhance project visibility and career readiness.
-
-Item	Description	Estimated Cost
-Career Center Services	Resume review, interview prep	$0
-Local Meetups / Workshops	Industry or student cybersecurity events	$10–$25
-LinkedIn Premium (1 month, optional)	Networking insights and messaging	$40
-
-Subtotal (Networking & Services): $50–$65
-
-5. Contingency & Risk Allowance
-
-To address unforeseen costs such as printing, travel, or software needs, a 10–15% contingency is included.
-
-Description	Rate	Estimated Amount
-Contingency Reserve	12% of total direct costs	$220 (approx.)
-6. Budget Summary
-Category	Estimated Cost (USD)
-Labor	$1,800 (midpoint)
-Tools & Software	$25
-Learning & Materials	$30
-Networking & Services	$60
-Contingency (12%)	$220
-Total Estimated Project Budget	≈ $2,135
-7. Key Budget Risks & Mitigation
-Risk	Impact	Mitigation
-Domain or tool costs exceed expectations	Moderate	Use free hosting (GitHub Pages) and free-tier design tools
-Event or transportation fees increase	Low	Prioritize virtual or on-campus events
-Printing or materials exceed estimate	Low	Shift to digital resources wherever possible
-✅ Budget Insights
-
-This budget keeps overall expenses low while prioritizing professional presentation and practical tools. Most resources are free or low-cost for students, ensuring a cost-effective yet professional outcome.
-              </div>
-            </div>
-          </details>
 
           <!-- Project Methodology & Tools -->
           <details class="card" data-title="🛠️ Project Methodology & Tools">
