@@ -675,13 +675,11 @@ This project will also act as a career development tool by showcasing my ability
 
   <div class="wrap card">
     <h1>💰 Project Budget Estimate</h1>
-    <p class="muted">Project Title: <strong>Personal Cybersecurity Awareness Guide</strong> • Duration: <strong>One Semester (Approx. 16 weeks)</strong><br>
-    Prepared by: <em>[Your Name]</em> • Date: <em>[Insert Date]</em></p>
 
     <div class="grid">
       <div>
         <h2>1) Labor and Time Investment</h2>
-        <p>This project is primarily self-driven, requiring time for research, content development, web design, and testing. Using an estimated <strong>80–100 total hours</strong> at <strong>$20/hour</strong>, the total labor cost is projected between <strong>$1,600 and $2,000</strong>.</p>
+        <p>This project is primarily self-driven, requiring time for research, content development, web design, and testing. Using an estimated 80–100 total hours at $20/hour, the total labor cost is projected between $1,600 and $2,000</strong>.</p>
         <table aria-label="Labor">
           <thead>
             <tr><th>Role</th><th>Estimated Hours</th><th>Rate (USD/hr)</th><th>Cost Range</th></tr>
@@ -704,13 +702,10 @@ This project will also act as a career development tool by showcasing my ability
           </thead>
           <tbody>
             <tr><td>GitHub Pages</td><td>Free website hosting platform</td><td>$0</td></tr>
-            <tr><td>Visual Studio Code</td><td>Web development environment</td><td>$0</td></tr>
             <tr><td>Canva / Figma</td><td>Visual design for UI and infographics</td><td>$0–$12</td></tr>
-            <tr><td>Custom Domain (optional)</td><td>Professional website URL</td><td>$15–$25</td></tr>
-            <tr><td>Cloud Storage (Google Drive)</td><td>Backup and file sharing</td><td>$0</td></tr>
           </tbody>
           <tfoot>
-            <tr><td colspan="2">Subtotal (Tools &amp; Software)</td><td>$15–$37</td></tr>
+            <tr><td colspan="2">Subtotal (Tools &amp; Software)</td><td>$0</td></tr>
           </tfoot>
         </table>
 
@@ -809,66 +804,7 @@ This project will also act as a career development tool by showcasing my ability
     </div>
   </div>
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script>
-    // === Donut (midpoint) ===
-    const donutCtx = document.getElementById('donutBudget');
-    const donutLabels = ["Labor","Tools & Software","Learning & Materials","Networking & Services","Contingency"];
-    const donutVals   = [1800, 25, 30, 60, 220];
-    const donutColors = ["#7aa2ff","#7ce0a3","#ffd47a","#f9a8d4","#b692f6"];
-    const totalMid = donutVals.reduce((a,b)=>a+b,0);
-
-    new Chart(donutCtx, {
-      type: "doughnut",
-      data: { labels: donutLabels, datasets: [{ data: donutVals, backgroundColor: donutColors, borderColor: "#ffffff", borderWidth: 1 }] },
-      options: {
-        cutout: "58%",
-        plugins: {
-          legend: { position: "bottom" },
-          tooltip: {
-            callbacks: {
-              label: (ctx) => {
-                const v = ctx.parsed, pct = (v/totalMid)*100;
-                return ` ${ctx.label}: $${v.toLocaleString()} (${pct.toFixed(1)}%)`;
-              }
-            }
-          }
-        }
-      }
-    });
-
-    // === Bars (min • mid • max) ===
-    const barCtx = document.getElementById('barsBudget');
-    const cats = ["Labor","Tools & Software","Learning & Materials","Networking & Services","Contingency (12%)"];
-    const minVals = [1600, 15, 10, 50, 201];
-    const midVals = [1800, 25, 30, 60, 220];
-    const maxVals = [2000, 37, 50, 65, 258];
-
-    new Chart(barCtx, {
-      type: "bar",
-      data: {
-        labels: cats,
-        datasets: [
-          { label: "Min", data: minVals, backgroundColor: "#7ce0a3" },
-          { label: "Mid", data: midVals, backgroundColor: "#7aa2ff" },
-          { label: "Max", data: maxVals, backgroundColor: "#b692f6" }
-        ]
-      },
-      options: {
-        responsive: true,
-        indexAxis: "y",
-        plugins: {
-          legend: { position: "bottom" },
-          title: { display: true, text: "Budget Estimate by Category (USD)" },
-          tooltip: { callbacks: { label: (ctx) => ` ${ctx.dataset.label}: $${Number(ctx.raw).toLocaleString()}` } }
-        },
-        scales: {
-          x: { ticks: { callback: (val) => "$" + Number(val).toLocaleString() }, grid: { drawBorder:false } },
-          y: { grid: { display:false } }
-        }
-      }
-    });
+ 
   </script>
 </section>
 
