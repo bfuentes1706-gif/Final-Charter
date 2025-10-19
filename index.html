@@ -648,85 +648,230 @@ This project will also act as a career development tool by showcasing my ability
                     <tbody</tbody>
                   </table>
                 </div>
-<details open>
-  <summary><strong>📊 Budget Estimate (Min • Mid • Max)</strong></summary>
-  <div style="padding:12px;max-width:900px;margin:auto;">
-    <canvas id="budgetEstimateChart" aria-label="Budget estimate bar chart" role="img"></canvas>
+<!-- Budget Estimate: Personal Cybersecurity Awareness Guide -->
+<section id="budget-estimate" style="--accent:#7aa2ff; --ink:#151924; --muted:#6b7280; --card:#fafbff; --line:#e5e7eb; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;">
+  <style>
+    #budget-estimate .wrap{max-width:980px;margin:0 auto;padding:24px}
+    #budget-estimate h1{font-size:1.6rem;margin:0 0 .25rem}
+    #budget-estimate h2{font-size:1.15rem;margin:1.25rem 0 .5rem}
+    #budget-estimate p{color:var(--ink);line-height:1.55;margin:.25rem 0 .75rem}
+    #budget-estimate .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    #budget-estimate table{width:100%;border-collapse:collapse;border:1px solid var(--line);background:#fff;border-radius:10px;overflow:hidden}
+    #budget-estimate thead th{background:#f6f7fb;text-align:left;font-weight:600;color:#111827}
+    #budget-estimate th, #budget-estimate td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    #budget-estimate tfoot td{font-weight:600}
+    #budget-estimate .muted{color:var(--muted)}
+    #budget-estimate .grid{display:grid;gap:16px}
+    @media(min-width:880px){#budget-estimate .grid{grid-template-columns:1.2fr .8fr}}
+    #budget-estimate .pill{display:inline-flex;gap:10px;align-items:center;background:#eef3ff;border:1px solid #dbe7ff;color:#17386b;padding:8px 12px;border-radius:999px;font-size:.92rem}
+    #budget-estimate .sum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:.75rem 0}
+    #budget-estimate .sum .k{color:var(--muted);font-size:.85rem}
+    #budget-estimate .sum .v{font-weight:700}
+    #budget-estimate .charts{display:grid;gap:18px}
+    @media(min-width:760px){#budget-estimate .charts{grid-template-columns:1fr 1fr}}
+    #budget-estimate .canvas-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+    #budget-estimate .foot{color:var(--muted);font-size:.9rem;margin-top:.25rem}
+  </style>
 
-    <!-- Chart.js (safe to include even if already present) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <script>
-      // Categories and min/mid/max values (USD)
-      const estCategories = [
-        "Labor",
-        "Tools & Software",
-        "Learning & Materials",
-        "Networking & Services",
-        "Contingency (12%)"
-      ];
+  <div class="wrap card">
+    <h1>💰 Project Budget Estimate</h1>
+    <p class="muted">Project Title: <strong>Personal Cybersecurity Awareness Guide</strong> • Duration: <strong>One Semester (Approx. 16 weeks)</strong><br>
+    Prepared by: <em>[Your Name]</em> • Date: <em>[Insert Date]</em></p>
 
-      // Ranges based on your plan:
-      // Labor: 80–100 hrs @ $20/hr  => $1,600 – $2,000 (mid $1,800)
-      // Tools & Software: $15 – $37 (mid $25)
-      // Learning & Materials: $10 – $50 (mid $30)
-      // Networking & Services: $50 – $65 (mid $60)
-      // Contingency (12% of direct costs): min≈$201, mid≈$220, max≈$258
-      const minVals = [1600, 15, 10, 50, 201];
-      const midVals = [1800, 25, 30, 60, 220];
-      const maxVals = [2000, 37, 50, 65, 258];
+    <div class="grid">
+      <div>
+        <h2>1) Labor and Time Investment</h2>
+        <p>This project is primarily self-driven, requiring time for research, content development, web design, and testing. Using an estimated <strong>80–100 total hours</strong> at <strong>$20/hour</strong>, the total labor cost is projected between <strong>$1,600 and $2,000</strong>.</p>
+        <table aria-label="Labor">
+          <thead>
+            <tr><th>Role</th><th>Estimated Hours</th><th>Rate (USD/hr)</th><th>Cost Range</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Project Developer / Designer (self)</td>
+              <td>80–100</td>
+              <td>$20</td>
+              <td>$1,600 – $2,000</td>
+            </tr>
+          </tbody>
+        </table>
 
-      const ctx2 = document.getElementById("budgetEstimateChart");
-      new Chart(ctx2, {
-        type: "bar",
-        data: {
-          labels: estCategories,
-          datasets: [
-            {
-              label: "Min",
-              data: minVals,
-              backgroundColor: "#7ce0a3"
-            },
-            {
-              label: "Mid",
-              data: midVals,
-              backgroundColor: "#7aa2ff"
-            },
-            {
-              label: "Max",
-              data: maxVals,
-              backgroundColor: "#b692f6"
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          indexAxis: "y",
-          plugins: {
-            legend: { position: "bottom" },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => ` ${ctx.dataset.label}: $${ctx.raw.toLocaleString()}`
+        <h2>2) Tools, Software &amp; Hosting</h2>
+        <p>Most tools used are free via student or open-source resources. Optional costs may arise if premium features or a custom domain are added.</p>
+        <table aria-label="Tools and Software">
+          <thead>
+            <tr><th>Tool / Service</th><th>Purpose</th><th>Estimated Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GitHub Pages</td><td>Free website hosting platform</td><td>$0</td></tr>
+            <tr><td>Visual Studio Code</td><td>Web development environment</td><td>$0</td></tr>
+            <tr><td>Canva / Figma</td><td>Visual design for UI and infographics</td><td>$0–$12</td></tr>
+            <tr><td>Custom Domain (optional)</td><td>Professional website URL</td><td>$15–$25</td></tr>
+            <tr><td>Cloud Storage (Google Drive)</td><td>Backup and file sharing</td><td>$0</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="2">Subtotal (Tools &amp; Software)</td><td>$15–$37</td></tr>
+          </tfoot>
+        </table>
+
+        <h2>3) Learning Resources &amp; Materials</h2>
+        <p>To support high-quality content creation and accurate cybersecurity guidance, some educational and material expenses may occur.</p>
+        <table aria-label="Learning and Materials">
+          <thead>
+            <tr><th>Resource</th><th>Description</th><th>Estimated Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>LinkedIn Learning (via CSULA)</td><td>Cybersecurity awareness &amp; web design tutorials</td><td>$0</td></tr>
+            <tr><td>Resume / Portfolio Printing</td><td>For networking or career fairs</td><td>$10–$20</td></tr>
+            <tr><td>Cybersecurity Best Practice eBooks / Guides</td><td>Reference materials</td><td>$0–$30</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="2">Subtotal (Learning &amp; Materials)</td><td>$10–$50</td></tr>
+          </tfoot>
+        </table>
+
+        <h2>4) Professional Development &amp; Networking</h2>
+        <p>Attending relevant events or workshops can enhance project visibility and career readiness.</p>
+        <table aria-label="Professional development and networking">
+          <thead>
+            <tr><th>Item</th><th>Description</th><th>Estimated Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Career Center Services</td><td>Resume review, interview prep</td><td>$0</td></tr>
+            <tr><td>Local Meetups / Workshops</td><td>Industry or student cybersecurity events</td><td>$10–$25</td></tr>
+            <tr><td>LinkedIn Premium (1 month, optional)</td><td>Networking insights and messaging</td><td>$40</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="2">Subtotal (Networking &amp; Services)</td><td>$50–$65</td></tr>
+          </tfoot>
+        </table>
+
+        <h2>5) Contingency &amp; Risk Allowance</h2>
+        <p>To address unforeseen costs such as printing, travel, or software needs, a <strong>10–15%</strong> contingency is included.</p>
+        <table aria-label="Contingency">
+          <thead>
+            <tr><th>Description</th><th>Rate</th><th>Estimated Amount</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Contingency Reserve</td><td>12% of total direct costs</td><td>$220 (approx.)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pill">Total Estimated Project Budget: <strong>≈ $2,135</strong></div>
+        <div class="sum">
+          <div><div class="k">Labor (midpoint)</div><div class="v">$1,800</div></div>
+          <div><div class="k">Tools &amp; Software</div><div class="v">$25</div></div>
+          <div><div class="k">Learning &amp; Materials</div><div class="v">$30</div></div>
+          <div><div class="k">Networking &amp; Services</div><div class="v">$60</div></div>
+          <div><div class="k">Contingency (12%)</div><div class="v">$220</div></div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts">
+          <div class="canvas-box">
+            <canvas id="donutBudget" aria-label="Budget distribution donut" role="img"></canvas>
+            <div class="foot">Distribution by category (midpoint)</div>
+          </div>
+          <div class="canvas-box">
+            <canvas id="barsBudget" aria-label="Budget estimate min mid max" role="img"></canvas>
+            <div class="foot">Min • Mid • Max per category</div>
+          </div>
+        </div>
+
+        <h2>6) Budget Summary</h2>
+        <table aria-label="Budget summary">
+          <thead><tr><th>Category</th><th>Estimated Cost (USD)</th></tr></thead>
+          <tbody>
+            <tr><td>Labor</td><td>$1,800 (midpoint)</td></tr>
+            <tr><td>Tools &amp; Software</td><td>$25</td></tr>
+            <tr><td>Learning &amp; Materials</td><td>$30</td></tr>
+            <tr><td>Networking &amp; Services</td><td>$60</td></tr>
+            <tr><td>Contingency (12%)</td><td>$220</td></tr>
+          </tbody>
+          <tfoot><tr><td><strong>Total Estimated Project Budget</strong></td><td><strong>≈ $2,135</strong></td></tr></tfoot>
+        </table>
+
+        <h2>7) Key Budget Risks &amp; Mitigation</h2>
+        <table aria-label="Risks and mitigation">
+          <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr><td>Domain or tool costs exceed expectations</td><td>Moderate</td><td>Use free hosting (GitHub Pages) and free-tier design tools</td></tr>
+            <tr><td>Event or transportation fees increase</td><td>Low</td><td>Prioritize virtual or on-campus events</td></tr>
+            <tr><td>Printing or materials exceed estimate</td><td>Low</td><td>Shift to digital resources wherever possible</td></tr>
+          </tbody>
+        </table>
+
+        <h2>✅ Budget Insights</h2>
+        <p>This budget keeps overall expenses low while prioritizing professional presentation and practical tools. Most resources are free or low-cost for students, ensuring a cost-effective yet professional outcome.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    // === Donut (midpoint) ===
+    const donutCtx = document.getElementById('donutBudget');
+    const donutLabels = ["Labor","Tools & Software","Learning & Materials","Networking & Services","Contingency"];
+    const donutVals   = [1800, 25, 30, 60, 220];
+    const donutColors = ["#7aa2ff","#7ce0a3","#ffd47a","#f9a8d4","#b692f6"];
+    const totalMid = donutVals.reduce((a,b)=>a+b,0);
+
+    new Chart(donutCtx, {
+      type: "doughnut",
+      data: { labels: donutLabels, datasets: [{ data: donutVals, backgroundColor: donutColors, borderColor: "#ffffff", borderWidth: 1 }] },
+      options: {
+        cutout: "58%",
+        plugins: {
+          legend: { position: "bottom" },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => {
+                const v = ctx.parsed, pct = (v/totalMid)*100;
+                return ` ${ctx.label}: $${v.toLocaleString()} (${pct.toFixed(1)}%)`;
               }
-            },
-            title: {
-              display: true,
-              text: "Budget Estimate by Category (USD)"
             }
-          },
-          scales: {
-            x: {
-              ticks: {
-                callback: (val) => "$" + Number(val).toLocaleString()
-              },
-              grid: { drawBorder: false }
-            },
-            y: { grid: { display: false } }
           }
         }
-      });
-    </script>
-  </div>
-</details>
+      }
+    });
+
+    // === Bars (min • mid • max) ===
+    const barCtx = document.getElementById('barsBudget');
+    const cats = ["Labor","Tools & Software","Learning & Materials","Networking & Services","Contingency (12%)"];
+    const minVals = [1600, 15, 10, 50, 201];
+    const midVals = [1800, 25, 30, 60, 220];
+    const maxVals = [2000, 37, 50, 65, 258];
+
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: cats,
+        datasets: [
+          { label: "Min", data: minVals, backgroundColor: "#7ce0a3" },
+          { label: "Mid", data: midVals, backgroundColor: "#7aa2ff" },
+          { label: "Max", data: maxVals, backgroundColor: "#b692f6" }
+        ]
+      },
+      options: {
+        responsive: true,
+        indexAxis: "y",
+        plugins: {
+          legend: { position: "bottom" },
+          title: { display: true, text: "Budget Estimate by Category (USD)" },
+          tooltip: { callbacks: { label: (ctx) => ` ${ctx.dataset.label}: $${Number(ctx.raw).toLocaleString()}` } }
+        },
+        scales: {
+          x: { ticks: { callback: (val) => "$" + Number(val).toLocaleString() }, grid: { drawBorder:false } },
+          y: { grid: { display:false } }
+        }
+      }
+    });
+  </script>
+</section>
+
 
 
           <!-- Project Methodology & Tools -->
