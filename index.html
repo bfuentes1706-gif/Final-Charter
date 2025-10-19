@@ -632,182 +632,329 @@ This project will also act as a career development tool by showcasing my ability
             </div>
           </details>
 
-          <!-- 7. Budget Estimate (collapsed; summary auto-fills) -->
-          <details class="card" data-title="💰 7.Budget Estimate">
-            <summary>
-              <span class="title">💰 7.Budget Estimate</span>
-              <span class="summary-meta" id="budgetSummary">Summary loading…</span>
-              <span class="chev">▾</span>
-            </summary>
-            <div class="section-body">
-              <div class="budget-card">
-                <div style="overflow-x:auto;">
-                  <table class="budget-table" aria-label="Budget">
-                    <!-- full table kept exactly as in your code -->
-                    <thead</thead>
-                    <tbody</tbody>
-                  </table>
-                </div>
-<!-- Budget Estimate: Personal Cybersecurity Awareness Guide -->
-<section id="budget-estimate" style="--accent:#7aa2ff; --ink:#151924; --muted:#6b7280; --card:#fafbff; --line:#e5e7eb; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;">
-  <style>
-    #budget-estimate .wrap{max-width:980px;margin:0 auto;padding:24px}
-    #budget-estimate h1{font-size:1.6rem;margin:0 0 .25rem}
-    #budget-estimate h2{font-size:1.15rem;margin:1.25rem 0 .5rem}
-    #budget-estimate p{color:var(--ink);line-height:1.55;margin:.25rem 0 .75rem}
-    #budget-estimate .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-    #budget-estimate table{width:100%;border-collapse:collapse;border:1px solid var(--line);background:#fff;border-radius:10px;overflow:hidden}
-    #budget-estimate thead th{background:#f6f7fb;text-align:left;font-weight:600;color:#111827}
-    #budget-estimate th, #budget-estimate td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-    #budget-estimate tfoot td{font-weight:600}
-    #budget-estimate .muted{color:var(--muted)}
-    #budget-estimate .grid{display:grid;gap:16px}
-    @media(min-width:880px){#budget-estimate .grid{grid-template-columns:1.2fr .8fr}}
-    #budget-estimate .pill{display:inline-flex;gap:10px;align-items:center;background:#eef3ff;border:1px solid #dbe7ff;color:#17386b;padding:8px 12px;border-radius:999px;font-size:.92rem}
-    #budget-estimate .sum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:.75rem 0}
-    #budget-estimate .sum .k{color:var(--muted);font-size:.85rem}
-    #budget-estimate .sum .v{font-weight:700}
-    #budget-estimate .charts{display:grid;gap:18px}
-    @media(min-width:760px){#budget-estimate .charts{grid-template-columns:1fr 1fr}}
-    #budget-estimate .canvas-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
-    #budget-estimate .foot{color:var(--muted);font-size:.9rem;margin-top:.25rem}
-  </style>
+<!-- 7. Budget Estimate (collapsed; summary auto-fills) -->
+<details class="card" data-title="💰 7.Budget Estimate" id="budgetCard">
+  <summary>
+    <span class="title">💰 7.Budget Estimate</span>
+    <span class="summary-meta" id="budgetSummary">Summary loading…</span>
+    <span class="chev">▾</span>
+  </summary>
 
-  <div class="wrap card">
-    <h1>💰 Project Budget Estimate</h1>
-
-    <div class="grid">
-      <div>
-        <h2>1) Labor and Time Investment</h2>
-        <p>This project is primarily self-driven, requiring time for research, content development, web design, and testing. Using an estimated 80–100 total hours at $20/hour, the total labor cost is projected between $1,600 and $2,000</strong>.</p>
-        <table aria-label="Labor">
+  <div class="section-body">
+    <div class="budget-card">
+      <!-- PART 1: Labor -->
+      <h4>Part 1: Labor Costs</h4>
+      <p>The primary labor cost is my own time researching, designing, developing, and testing the site.</p>
+      <div style="overflow-x:auto;">
+        <table class="budget-table" aria-label="Labor Costs">
           <thead>
-            <tr><th>Role</th><th>Estimated Hours</th><th>Rate (USD/hr)</th><th>Cost Range</th></tr>
-          </thead>
-          <tbody>
             <tr>
-              <td>Project Developer / Designer (self)</td>
-              <td>80–100</td>
-              <td>$20</td>
-              <td>$1,600 – $2,000</td>
+              <th scope="col">Role</th>
+              <th scope="col">Hours</th>
+              <th scope="col">Rate</th>
+              <th scope="col">Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody id="laborBody">
+            <tr data-min="1980" data-max="2420" data-mid="2200">
+              <td>Student Developer / PM (self)</td>
+              <td>90–110</td>
+              <td>$22/hr</td>
+              <td class="money-range">$1,980 – $2,420</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="3">Labor Subtotal</th>
+              <td id="laborSubtotalCell" class="money-range">—</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- PART 2: Non-Labor -->
+      <h4 style="margin-top:1rem;">Part 2: Non-Labor Costs</h4>
+
+      <!-- Equipment & Software -->
+      <h5>Equipment &amp; Software</h5>
+      <div style="overflow-x:auto;">
+        <table class="budget-table" aria-label="Equipment and Software">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Description</th>
+              <th scope="col">Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody id="equipBody">
+            <tr data-min="15" data-max="15" data-mid="15">
+              <td>Domain Name (1 year)</td>
+              <td>Custom URL for professional presentation</td>
+              <td class="money">$15</td>
+            </tr>
+            <tr data-min="0" data-max="20" data-mid="10">
+              <td>Static Hosting</td>
+              <td>GitHub Pages/Netlify for live site</td>
+              <td class="money-range">$0 – $20</td>
+            </tr>
+            <tr data-min="13" data-max="13" data-mid="13">
+              <td>Canva Pro (1 month)</td>
+              <td>Infographics, banners, and visuals</td>
+              <td class="money">$13</td>
+            </tr>
+            <tr data-min="0" data-max="0" data-mid="0">
+              <td>VS Code / Git / GitHub</td>
+              <td>Dev tools &amp; version control</td>
+              <td class="money">$0</td>
+            </tr>
+            <tr data-min="0" data-max="0" data-mid="0">
+              <td>Grammarly/Hemingway (free tier)</td>
+              <td>Proofing &amp; readability</td>
+              <td class="money">$0</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="2">Equipment &amp; Software Subtotal</th>
+              <td id="equipSubtotalCell" class="money-range">—</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Materials -->
+      <h5>Materials</h5>
+      <div style="overflow-x:auto;">
+        <table class="budget-table" aria-label="Materials">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Description</th>
+              <th scope="col">Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody id="materialsBody">
+            <tr data-min="10" data-max="20" data-mid="15">
+              <td>Stock Icons &amp; Images</td>
+              <td>Visuals for lessons &amp; quizzes</td>
+              <td class="money-range">$10 – $20</td>
+            </tr>
+            <tr data-min="15" data-max="25" data-mid="20">
+              <td>Reference eBooks</td>
+              <td>Supplemental research materials</td>
+              <td class="money-range">$15 – $25</td>
+            </tr>
+            <tr data-min="10" data-max="10" data-mid="10">
+              <td>Printable Infographics (optional)</td>
+              <td>For demos or handouts</td>
+              <td class="money">$10</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="2">Materials Subtotal</th>
+              <td id="materialsSubtotalCell" class="money-range">—</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Services -->
+      <h5>Services</h5>
+      <div style="overflow-x:auto;">
+        <table class="budget-table" aria-label="Services">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Description</th>
+              <th scope="col">Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody id="servicesBody">
+            <tr data-min="0" data-max="0" data-mid="0">
+              <td>Cloudflare (free tier)</td>
+              <td>SSL and basic security features</td>
+              <td class="money">$0</td>
+            </tr>
+            <tr data-min="0" data-max="0" data-mid="0">
+              <td>Peer/Instructor Reviews</td>
+              <td>Feedback &amp; usability testing</td>
+              <td class="money">$0</td>
+            </tr>
+            <tr data-min="0" data-max="0" data-mid="0">
+              <td>Quiz Library</td>
+              <td>Open-source JS quiz component</td>
+              <td class="money">$0</td>
+            </tr>
+            <tr data-min="40" data-max="40" data-mid="40">
+              <td>LinkedIn Premium (optional, 1 mo.)</td>
+              <td>Networking &amp; job-search insights</td>
+              <td class="money">$40</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="2">Services Subtotal</th>
+              <td id="servicesSubtotalCell" class="money-range">—</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Totals / Contingency -->
+      <h4 style="margin-top:1rem;">Totals &amp; Contingency</h4>
+      <div style="overflow-x:auto;">
+        <table class="budget-table" aria-label="Totals">
+          <tbody id="totalsBody">
+            <tr>
+              <th scope="row">Subtotal — Direct Costs</th>
+              <td id="directSubtotalCell" class="money-range">—</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Contingency
+                <span aria-hidden="true">(</span>
+                <label for="contPct" class="visually-hidden">Contingency %</label>
+                <input id="contPct" type="number" min="0" max="50" value="20" style="width:4ch;" />
+                <span aria-hidden="true">%)</span>
+              </th>
+              <td id="contingencyCell" class="money-range">—</td>
+            </tr>
+            <tr>
+              <th scope="row">TOTAL PROJECT BUDGET</th>
+              <td id="grandTotalCell" class="money-range" style="font-weight:700;">—</td>
             </tr>
           </tbody>
         </table>
+      </div>
 
-        <h2>2) Tools, Software &amp; Hosting</h2>
-        <p>Most tools used are free via student or open-source resources. Optional costs may arise if premium features or a custom domain are added.</p>
-        <table aria-label="Tools and Software">
+      <!-- Breakdown -->
+      <h4 style="margin-top:1rem;">Budget Breakdown (midpoint)</h4>
+      <div style="overflow-x:auto;">
+        <table class="budget-table" aria-label="Budget Breakdown">
           <thead>
-            <tr><th>Tool / Service</th><th>Purpose</th><th>Estimated Cost</th></tr>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">% of Total</th>
+              <th scope="col">Amount</th>
+            </tr>
           </thead>
-          <tbody>
-            <tr><td>GitHub Pages</td><td>Free website hosting platform</td><td>$0</td></tr>
-            <tr><td>Canva / Figma</td><td>Visual design for UI and infographics</td><td>$0–$12</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td colspan="2">Subtotal (Tools &amp; Software)</td><td>$0</td></tr>
-          </tfoot>
-        </table>
-
-        <h2>3) Learning Resources &amp; Materials</h2>
-        <p>To support high-quality content creation and accurate cybersecurity guidance, some educational and material expenses may occur.</p>
-        <table aria-label="Learning and Materials">
-          <thead>
-            <tr><th>Resource</th><th>Description</th><th>Estimated Cost</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>LinkedIn Learning (via CSULA)</td><td>Cybersecurity awareness &amp; web design tutorials</td><td>$0</td></tr>
-            <tr><td>Resume / Portfolio Printing</td><td>For networking or career fairs</td><td>$10–$20</td></tr>
-            <tr><td>Cybersecurity Best Practice eBooks / Guides</td><td>Reference materials</td><td>$0–$30</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td colspan="2">Subtotal (Learning &amp; Materials)</td><td>$10–$50</td></tr>
-          </tfoot>
-        </table>
-
-        <h2>4) Professional Development &amp; Networking</h2>
-        <p>Attending relevant events or workshops can enhance project visibility and career readiness.</p>
-        <table aria-label="Professional development and networking">
-          <thead>
-            <tr><th>Item</th><th>Description</th><th>Estimated Cost</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Career Center Services</td><td>Resume review, interview prep</td><td>$0</td></tr>
-            <tr><td>Local Meetups / Workshops</td><td>Industry or student cybersecurity events</td><td>$10–$25</td></tr>
-            <tr><td>LinkedIn Premium (1 month, optional)</td><td>Networking insights and messaging</td><td>$40</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td colspan="2">Subtotal (Networking &amp; Services)</td><td>$50–$65</td></tr>
-          </tfoot>
-        </table>
-
-        <h2>5) Contingency &amp; Risk Allowance</h2>
-        <p>To address unforeseen costs such as printing, travel, or software needs, a <strong>10–15%</strong> contingency is included.</p>
-        <table aria-label="Contingency">
-          <thead>
-            <tr><th>Description</th><th>Rate</th><th>Estimated Amount</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Contingency Reserve</td><td>12% of total direct costs</td><td>$220 (approx.)</td></tr>
+          <tbody id="breakdownBody">
+            <tr data-source="labor"><td>Labor</td><td class="pct">—</td><td class="amt">—</td></tr>
+            <tr data-source="equip"><td>Equipment/Software</td><td class="pct">—</td><td class="amt">—</td></tr>
+            <tr data-source="materials"><td>Materials</td><td class="pct">—</td><td class="amt">—</td></tr>
+            <tr data-source="services"><td>Services</td><td class="pct">—</td><td class="amt">—</td></tr>
+            <tr data-source="contingency"><td>Contingency</td><td class="pct">—</td><td class="amt">—</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div>
-        <div class="pill">Total Estimated Project Budget: <strong>≈ $2,135</strong></div>
-        <div class="sum">
-          <div><div class="k">Labor (midpoint)</div><div class="v">$1,800</div></div>
-          <div><div class="k">Tools &amp; Software</div><div class="v">$25</div></div>
-          <div><div class="k">Learning &amp; Materials</div><div class="v">$30</div></div>
-          <div><div class="k">Networking &amp; Services</div><div class="v">$60</div></div>
-          <div><div class="k">Contingency (12%)</div><div class="v">$220</div></div>
-        </div>
-
-        <!-- Charts -->
-        <div class="charts">
-          <div class="canvas-box">
-            <canvas id="donutBudget" aria-label="Budget distribution donut" role="img"></canvas>
-            <div class="foot">Distribution by category (midpoint)</div>
-          </div>
-          <div class="canvas-box">
-            <canvas id="barsBudget" aria-label="Budget estimate min mid max" role="img"></canvas>
-            <div class="foot">Min • Mid • Max per category</div>
-          </div>
-        </div>
-
-        <h2>6) Budget Summary</h2>
-        <table aria-label="Budget summary">
-          <thead><tr><th>Category</th><th>Estimated Cost (USD)</th></tr></thead>
-          <tbody>
-            <tr><td>Labor</td><td>$1,800 (midpoint)</td></tr>
-            <tr><td>Tools &amp; Software</td><td>$25</td></tr>
-            <tr><td>Learning &amp; Materials</td><td>$30</td></tr>
-            <tr><td>Networking &amp; Services</td><td>$60</td></tr>
-            <tr><td>Contingency (12%)</td><td>$220</td></tr>
-          </tbody>
-          <tfoot><tr><td><strong>Total Estimated Project Budget</strong></td><td><strong>≈ $2,135</strong></td></tr></tfoot>
-        </table>
-
-        <h2>7) Key Budget Risks &amp; Mitigation</h2>
-        <table aria-label="Risks and mitigation">
-          <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
-          <tbody>
-            <tr><td>Domain or tool costs exceed expectations</td><td>Moderate</td><td>Use free hosting (GitHub Pages) and free-tier design tools</td></tr>
-            <tr><td>Event or transportation fees increase</td><td>Low</td><td>Prioritize virtual or on-campus events</td></tr>
-            <tr><td>Printing or materials exceed estimate</td><td>Low</td><td>Shift to digital resources wherever possible</td></tr>
-          </tbody>
-        </table>
-
-        <h2>✅ Budget Insights</h2>
-        <p>This budget keeps overall expenses low while prioritizing professional presentation and practical tools. Most resources are free or low-cost for students, ensuring a cost-effective yet professional outcome.</p>
-      </div>
+      <!-- Risks -->
+      <h4 style="margin-top:1rem;">Risk &amp; Contingency Planning</h4>
+      <ul>
+        <li><strong>Hosting or domain costs increase:</strong> Prefer GitHub Pages (free). Renew or upgrade only if necessary.</li>
+        <li><strong>Need for extra design assets:</strong> Favor open-source media (e.g., Unsplash, Flaticon) before buying.</li>
+        <li><strong>Time overrun causes subscription extensions:</strong> Front-load content creation and lock scope to avoid extra months.</li>
+      </ul>
+      <p><em>Contingency rationale:</em> A <strong>20%</strong> reserve covers low-to-moderate risk of optional design/hosting upgrades while most tools remain free.</p>
     </div>
   </div>
+</details>
 
- 
-  </script>
-</section>
+<script>
+(function () {
+  const money = (n) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  const range = (min, max) => min === max ? money(min) : `${money(min)} – ${money(max)}`;
 
+  // Sum helper over rows with data-min/max/mid
+  function sumRows(tbody) {
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    return rows.reduce((acc, r) => {
+      const min = Number(r.dataset.min || 0);
+      const max = Number(r.dataset.max || 0);
+      const mid = Number(r.dataset.mid || ((min + max) / 2));
+      acc.min += min; acc.max += max; acc.mid += mid;
+      return acc;
+    }, { min: 0, max: 0, mid: 0 });
+  }
+
+  // Sections
+  const labor = sumRows(document.getElementById('laborBody'));
+  const equip = sumRows(document.getElementById('equipBody'));
+  const materials = sumRows(document.getElementById('materialsBody'));
+  const services = sumRows(document.getElementById('servicesBody'));
+
+  // Fill section subtotals
+  document.getElementById('laborSubtotalCell').textContent = range(labor.min, labor.max);
+  document.getElementById('equipSubtotalCell').textContent = range(equip.min, equip.max);
+  document.getElementById('materialsSubtotalCell').textContent = range(materials.min, materials.max);
+  document.getElementById('servicesSubtotalCell').textContent = range(services.min, services.max);
+
+  function recalcTotals() {
+    const contPct = Math.max(0, Math.min(50, Number(document.getElementById('contPct').value || 0)));
+
+    const direct = {
+      min: labor.min + equip.min + materials.min + services.min,
+      max: labor.max + equip.max + materials.max + services.max,
+      mid: labor.mid + equip.mid + materials.mid + services.mid
+    };
+
+    const contingency = {
+      min: Math.round(direct.min * contPct) / 100,
+      max: Math.round(direct.max * contPct) / 100,
+      mid: Math.round(direct.mid * contPct) / 100
+    };
+
+    const total = {
+      min: direct.min + contingency.min,
+      max: direct.max + contingency.max,
+      mid: direct.mid + contingency.mid
+    };
+
+    // Fill totals table
+    document.getElementById('directSubtotalCell').textContent = range(direct.min, direct.max);
+    document.getElementById('contingencyCell').textContent   = range(contingency.min, contingency.max);
+    document.getElementById('grandTotalCell').textContent    = range(total.min, total.max);
+
+    // Summary (compact)
+    const summary = document.getElementById('budgetSummary');
+    summary.textContent = `${money(direct.mid)} subtotal + ${contPct}% contingency → ${money(total.mid)} total`;
+
+    // Breakdown (midpoint)
+    const breakdown = [
+      ['labor', labor.mid],
+      ['equip', equip.mid],
+      ['materials', materials.mid],
+      ['services', services.mid],
+      ['contingency', contingency.mid]
+    ];
+    const totalForPct = breakdown.reduce((s, [, v]) => s + v, 0) || 1;
+    breakdown.forEach(([key, val]) => {
+      const row = document.querySelector(`#breakdownBody tr[data-source="${key}"]`);
+      if (!row) return;
+      row.querySelector('.pct').textContent = (val / totalForPct * 100).toFixed(1) + '%';
+      row.querySelector('.amt').textContent = money(val);
+    });
+  }
+
+  // Initial calc + re-calc on change
+  recalcTotals();
+  document.getElementById('contPct').addEventListener('input', recalcTotals);
+})();
+</script>
+
+<!-- Optional: minimal a11y helper for the visually-hidden label -->
+<style>
+  .visually-hidden {
+    position:absolute !important;
+    height:1px; width:1px;
+    overflow:hidden; clip:rect(1px, 1px, 1px, 1px);
+    white-space:nowrap; border:0; padding:0; margin:-1px;
+  }
+  /* If your theme already styles .budget-table, this is safe to remove */
+  .budget-table th, .budget-table td { padding: .4rem .6rem; }
+  .budget-table tfoot th, .budget-table tfoot td { font-weight: 600; }
+</style>
 
 
           <!-- Project Methodology & Tools -->
