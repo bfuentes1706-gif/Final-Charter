@@ -436,6 +436,95 @@
       border: 1px solid #ef4444;
     }
     
+    /* Weekly Reports */
+    .week-report {
+      background: rgba(30, 39, 73, 0.5);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    
+    .week-report:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 5px 20px rgba(99, 102, 241, 0.15);
+    }
+    
+    .week-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .week-header h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+    
+    .week-summary {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent-primary);
+    }
+    
+    .week-summary strong {
+      color: var(--text-primary);
+    }
+    
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .week-col {
+      background: rgba(10, 14, 39, 0.5);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    
+    .week-col h4 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    
+    .week-col ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      list-style: none;
+    }
+    
+    .week-col li {
+      position: relative;
+      padding-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+    
+    .week-col li::before {
+      content: '•';
+      position: absolute;
+      left: -0.75rem;
+      color: var(--accent-primary);
+    }
+    
+    .week-col p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    
     /* SVG Styling */
     svg {
       max-width: 100%;
@@ -1162,71 +1251,200 @@
           <div class="section-header-left">
             <div class="section-icon">📅</div>
             <div>
-              <div class="section-title">Weekly Status (W6–W9)</div>
-              <div class="section-meta">Progress tracking with RAG status</div>
+              <div class="section-title">Weekly Status Reports</div>
+              <div class="section-meta">Weeks 6-10 Progress Tracking</div>
             </div>
           </div>
           <div class="chevron">▼</div>
         </div>
         <div class="section-content">
           <div class="section-body">
-            <p style="margin-bottom: 1rem;"><strong>RAG Legend:</strong> 
-              <span class="rag rag-green">Green</span> On Track • 
-              <span class="rag rag-amber">Amber</span> Watch / Minor risk • 
-              <span class="rag rag-red">Red</span> Off Track / Major risk
-            </p>
             
-            <table>
-              <thead>
-                <tr>
-                  <th>Week</th>
-                  <th>Date</th>
-                  <th>RAG</th>
-                  <th>Overall Status Summary</th>
-                  <th>Accomplishments</th>
-                  <th>Next Week Focus</th>
-                  <th>Risks / Blocks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Week 6</td>
-                  <td>—</td>
-                  <td><span class="rag rag-green">Green</span></td>
-                  <td>Development kickoff. Repo + hosting set up; layout started. Overall on track.</td>
-                  <td>• GitHub repo, auto-deploy set<br>• Header/footer + mobile nav done<br>• "Online Safety Basics" outline drafted</td>
-                  <td>• Write first draft of phishing lesson<br>• Start quiz component shell (JS)</td>
-                  <td>• None major. Finalize color palette that meets AA contrast</td>
-                </tr>
-                <tr>
-                  <td>Week 7</td>
-                  <td>—</td>
-                  <td><span class="rag rag-green">Green</span></td>
-                  <td>Phishing module v1 complete; quiz shell working. Steady progress.</td>
-                  <td>• Phishing lesson v1 done<br>• Two "real vs. fake" email examples<br>• Quiz shell with scoring/feedback</td>
-                  <td>• Start Password Management lesson<br>• Finish quiz questions + hints</td>
-                  <td>• Need more CC-licensed icons for callouts</td>
-                </tr>
-                <tr>
-                  <td>Week 8</td>
-                  <td>—</td>
-                  <td><span class="rag rag-amber">Amber</span></td>
-                  <td>Password lesson drafted; accessibility fixes underway. Small UI issues to watch.</td>
-                  <td>• Password lesson v1 done<br>• Quiz bank 12/12 with hints<br>• Contrast/alt text fixed; skip links added</td>
-                  <td>• Add ARIA labels to quiz buttons<br>• Peer usability testing (2–3 people)</td>
-                  <td>• Minor layout shift on small screens (hero image)</td>
-                </tr>
-                <tr>
-                  <td>Week 9</td>
-                  <td>—</td>
-                  <td><span class="rag rag-green">Green</span></td>
-                  <td>Usability tests done; security basics set; polishing for launch.</td>
-                  <td>• 2 peer tests; issues logged/fixed<br>• HTTPS + headers set; broken links fixed<br>• Hero layout stabilized; ARIA labels added</td>
-                  <td>• Prep launch checklist + portfolio write-up<br>• Share preview link for feedback</td>
-                  <td>• Mobile performance: image optimization in progress (goal 90+)</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- Week 6 -->
+            <div class="week-report">
+              <div class="week-header">
+                <h3>Week 6</h3>
+                <span class="rag rag-green">🟢 On Track</span>
+              </div>
+              
+              <div class="week-summary">
+                <strong>Summary:</strong> Project kickoff week. Set up infrastructure and started initial design work.
+              </div>
+              
+              <div class="week-grid">
+                <div class="week-col">
+                  <h4>✅ Completed</h4>
+                  <ul>
+                    <li>GitHub repo setup</li>
+                    <li>Basic website layout</li>
+                    <li>Content outline drafted</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>📅 Next Week</h4>
+                  <ul>
+                    <li>Write phishing lesson</li>
+                    <li>Start quiz component</li>
+                    <li>Fix color contrast</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>⚠️ Issues</h4>
+                  <p>None - project starting smoothly</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Week 7 -->
+            <div class="week-report">
+              <div class="week-header">
+                <h3>Week 7</h3>
+                <span class="rag rag-green">🟢 On Track</span>
+              </div>
+              
+              <div class="week-summary">
+                <strong>Summary:</strong> Completed first lesson content and built working quiz prototype.
+              </div>
+              
+              <div class="week-grid">
+                <div class="week-col">
+                  <h4>✅ Completed</h4>
+                  <ul>
+                    <li>Phishing lesson finished</li>
+                    <li>Quiz component working</li>
+                    <li>Added email examples</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>📅 Next Week</h4>
+                  <ul>
+                    <li>Password lesson</li>
+                    <li>Complete quiz questions</li>
+                    <li>Find more icons</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>⚠️ Issues</h4>
+                  <p>Need to find free icons for content</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Week 8 -->
+            <div class="week-report">
+              <div class="week-header">
+                <h3>Week 8</h3>
+                <span class="rag rag-amber">🟡 At Risk</span>
+              </div>
+              
+              <div class="week-summary">
+                <strong>Summary:</strong> Content done but found accessibility issues that need fixing.
+              </div>
+              
+              <div class="week-grid">
+                <div class="week-col">
+                  <h4>✅ Completed</h4>
+                  <ul>
+                    <li>Password lesson done</li>
+                    <li>All 12 quiz questions</li>
+                    <li>Fixed color contrast</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>📅 Next Week</h4>
+                  <ul>
+                    <li>Add ARIA labels</li>
+                    <li>Test with 3 users</li>
+                    <li>Fix mobile layout bug</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>⚠️ Issues</h4>
+                  <p>Small layout problem on mobile screens</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Week 9 -->
+            <div class="week-report">
+              <div class="week-header">
+                <h3>Week 9</h3>
+                <span class="rag rag-green">🟢 On Track</span>
+              </div>
+              
+              <div class="week-summary">
+                <strong>Summary:</strong> Fixed all issues and completed user testing successfully.
+              </div>
+              
+              <div class="week-grid">
+                <div class="week-col">
+                  <h4>✅ Completed</h4>
+                  <ul>
+                    <li>User testing done</li>
+                    <li>Mobile bug fixed</li>
+                    <li>Added security features</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>📅 Next Week</h4>
+                  <ul>
+                    <li>Final polish</li>
+                    <li>Portfolio page</li>
+                    <li>Prepare launch</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>⚠️ Issues</h4>
+                  <p>Need to optimize images for speed</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Week 10 -->
+            <div class="week-report">
+              <div class="week-header">
+                <h3>Week 10</h3>
+                <span class="rag rag-green">🟢 On Track</span>
+              </div>
+              
+              <div class="week-summary">
+                <strong>Summary:</strong> Final week - launched website and added to portfolio!
+              </div>
+              
+              <div class="week-grid">
+                <div class="week-col">
+                  <h4>✅ Completed</h4>
+                  <ul>
+                    <li>Website launched live</li>
+                    <li>Portfolio page created</li>
+                    <li>Shared on LinkedIn</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>📅 Next Steps</h4>
+                  <ul>
+                    <li>Gather more feedback</li>
+                    <li>Plan future updates</li>
+                    <li>Use in job applications</li>
+                  </ul>
+                </div>
+                
+                <div class="week-col">
+                  <h4>⚠️ Issues</h4>
+                  <p>None - project complete!</p>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -1320,4 +1538,3 @@
   </script>
 </body>
 </html>
-
