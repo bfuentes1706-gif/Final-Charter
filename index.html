@@ -865,156 +865,89 @@
                 </tr>
               </tbody>
             </table>
-<h4 style="margin-top: 2rem;">Power-Interest Grid Visualization</h4>
-<svg width="100%" height="420" viewBox="0 0 600 420" aria-labelledby="title desc" role="img">
-  <title id="title">Power–Interest Grid</title>
-  <desc id="desc">Stakeholders positioned by power (x-axis) and interest (y-axis). Colors match quadrants: purple=Keep Informed, green=Manage Closely, red=Monitor, orange=Keep Satisfied.</desc>
+ <!-- Power–Interest Grid Section -->
+<section class="grid-section">
+  <h2>Power–Interest Grid</h2>
+  <p>The Power–Interest Grid below shows how stakeholders are grouped based on their level of influence (power) and involvement (interest) in the project.</p>
 
-  <defs>
-    <!-- Quadrant fills (soft tints of purple, green, red, orange) -->
-    <linearGradient id="quadTL" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#efe9ff"/>
-      <stop offset="100%" stop-color="#f7f3ff"/>
-    </linearGradient>
-    <linearGradient id="quadTR" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#e3f6d9"/>
-      <stop offset="100%" stop-color="#f1fbec"/>
-    </linearGradient>
-    <linearGradient id="quadBL" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffe5e5"/>
-      <stop offset="100%" stop-color="#fff2f2"/>
-    </linearGradient>
-    <linearGradient id="quadBR" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffe9d4"/>
-      <stop offset="100%" stop-color="#fff5ea"/>
-    </linearGradient>
+  <div class="grid-container">
+    <div class="quadrant high-power-high-interest">
+      <h3>Manage Closely</h3>
+      <ul>
+        <li>Instructor</li>
+      </ul>
+    </div>
 
-    <style>
-      .axis { stroke:#94a3b8; stroke-width:1.25; }
-      .grid { stroke:#e2e8f0; stroke-dasharray:3 3; }
-      .tick text { fill:#475569; font-size:11px; }
-      .label { fill:#0f172a; font-weight:600; font-size:12px; }
-      .quad-label { fill:#334155; font-weight:700; font-size:12px; opacity:.9; }
-      .point { stroke:#0f172a; stroke-width:.5; }
-      .tag { fill:#0f172a; font-size:11px; }
-    </style>
-  </defs>
+    <div class="quadrant high-power-low-interest">
+      <h3>Keep Satisfied</h3>
+      <ul>
+        <li>Faculty / Academic Advisor</li>
+        <li>Local Community Center</li>
+      </ul>
+    </div>
 
-  <!-- PLOT AREA -->
-  <g id="plot" transform="translate(80,40)">
-    <!-- Quadrants: 480x320 total area, split into 240x160 -->
-    <rect x="0"   y="0"   width="240" height="160" fill="url(#quadTL)"></rect>   <!-- TL: Keep Informed (purple) -->
-    <rect x="240" y="0"   width="240" height="160" fill="url(#quadTR)"></rect>   <!-- TR: Manage Closely (green) -->
-    <rect x="0"   y="160" width="240" height="160" fill="url(#quadBL)"></rect>   <!-- BL: Monitor (red) -->
-    <rect x="240" y="160" width="240" height="160" fill="url(#quadBR)"></rect>   <!-- BR: Keep Satisfied (orange) -->
+    <div class="quadrant low-power-high-interest">
+      <h3>Keep Informed</h3>
+      <ul>
+        <li>Classmates / Peers</li>
+        <li>IT Club Members</li>
+        <li>Family & Friends</li>
+        <li>General Public / End Users</li>
+      </ul>
+    </div>
 
-    <!-- Light gridlines -->
-    <g class="grid">
-      <!-- vertical minor grid -->
-      <line x1="48"  y1="0" x2="48"  y2="320"></line>
-      <line x1="96"  y1="0" x2="96"  y2="320"></line>
-      <line x1="144" y1="0" x2="144" y2="320"></line>
-      <line x1="192" y1="0" x2="192" y2="320"></line>
-      <line x1="240" y1="0" x2="240" y2="320"></line>
-      <line x1="288" y1="0" x2="288" y2="320"></line>
-      <line x1="336" y1="0" x2="336" y2="320"></line>
-      <line x1="384" y1="0" x2="384" y2="320"></line>
-      <line x1="432" y1="0" x2="432" y2="320"></line>
-      <!-- horizontal minor grid -->
-      <line x1="0" y1="32"  x2="480" y2="32"></line>
-      <line x1="0" y1="64"  x2="480" y2="64"></line>
-      <line x1="0" y1="96"  x2="480" y2="96"></line>
-      <line x1="0" y1="128" x2="480" y2="128"></line>
-      <line x1="0" y1="160" x2="480" y2="160"></line>
-      <line x1="0" y1="192" x2="480" y2="192"></line>
-      <line x1="0" y1="224" x2="480" y2="224"></line>
-      <line x1="0" y1="256" x2="480" y2="256"></line>
-      <line x1="0" y1="288" x2="480" y2="288"></line>
-    </g>
+    <div class="quadrant low-power-low-interest">
+      <h3>Monitor</h3>
+      <ul>
+        <li>Online Safety Blogs / Websites</li>
+        <li>Cybersecurity Professionals / Experts</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- Midlines -->
-    <line x1="240" y1="0"   x2="240" y2="320" class="axis"></line>
-    <line x1="0"   y1="160" x2="480" y2="160" class="axis"></line>
+           <style>
+.grid-section {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
 
-    <!-- Quadrant labels -->
-    <text x="12"  y="16"  class="quad-label">Keep Informed</text>   <!-- TL -->
-    <text x="252" y="16"  class="quad-label">Manage Closely</text>  <!-- TR -->
-    <text x="12"  y="176" class="quad-label">Monitor</text>         <!-- BL -->
-    <text x="252" y="176" class="quad-label">Keep Satisfied</text>  <!-- BR -->
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  margin: 1rem auto;
+  width: 80%;
+  max-width: 800px;
+  height: 500px;
+}
 
-    <!-- Axes -->
-    <line x1="0" y1="320" x2="480" y2="320" class="axis"></line>
-    <line x1="0" y1="0"   x2="0"   y2="320" class="axis"></line>
+.quadrant {
+  border-radius: 10px;
+  padding: 1rem;
+  color: #111;
+  font-size: 0.95rem;
+  text-align: left;
+}
 
-    <!-- Ticks & tick labels -->
-    <g class="tick">
-      <!-- X ticks -->
-      <g transform="translate(0,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">0</text></g>
-      <g transform="translate(240,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">50</text></g>
-      <g transform="translate(480,320)"><line y2="6" stroke="#94a3b8"/><text y="20" text-anchor="middle">100</text></g>
-      <!-- Y ticks -->
-      <g transform="translate(0,320)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">0</text></g>
-      <g transform="translate(0,160)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">50</text></g>
-      <g transform="translate(0,0)"><line x2="-6" stroke="#94a3b8"/><text x="-12" dy="4" text-anchor="end">100</text></g>
-    </g>
+.quadrant h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
 
-    <!-- Axis labels -->
-    <text x="240" y="352" text-anchor="middle" class="label">Power (Low → High)</text>
-    <text transform="translate(-54,160) rotate(-90)" text-anchor="middle" class="label">Interest (Low → High)</text>
+.high-power-high-interest { background-color: #a6d38e; }   /* Green */
+.high-power-low-interest { background-color: #f4a44f; }    /* Orange */
+.low-power-high-interest { background-color: #a78bfa; }    /* Purple */
+.low-power-low-interest { background-color: #ef6461; }     /* Red */
 
-    <!-- ============ STAKEHOLDER POINTS (colored by quadrant) ============ -->
-    <!-- Manage Closely (Green, TR) -->
-    <g transform="translate(400,48)">
-      <circle r="6" class="point" fill="#22c55e"></circle>
-      <text class="tag" x="10" y="4">Instructor</text>
-    </g>
-    <g transform="translate(440,72)">
-      <circle r="6" class="point" fill="#22c55e"></circle>
-      <text class="tag" x="10" y="4">Project Creator (Self)</text>
-    </g>
-
-    <!-- Keep Satisfied (Orange, BR) -->
-    <g transform="translate(380,264)">
-      <circle r="6" class="point" fill="#f59e0b"></circle>
-      <text class="tag" x="10" y="4">Faculty / Academic Advisor</text>
-    </g>
-    <g transform="translate(340,288)">
-      <circle r="6" class="point" fill="#f59e0b"></circle>
-      <text class="tag" x="10" y="4">Local Community Center</text>
-    </g>
-
-    <!-- Keep Informed (Purple, TL) -->
-    <g transform="translate(120,64)">
-      <circle r="6" class="point" fill="#8b5cf6"></circle>
-      <text class="tag" x="10" y="4">Classmates / Peers</text>
-    </g>
-    <g transform="translate(180,96)">
-      <circle r="6" class="point" fill="#8b5cf6"></circle>
-      <text class="tag" x="10" y="4">IT Club Members</text>
-    </g>
-    <g transform="translate(80,120)">
-      <circle r="6" class="point" fill="#8b5cf6"></circle>
-      <text class="tag" x="10" y="4">Family &amp; Friends</text>
-    </g>
-    <g transform="translate(200,140)">
-      <circle r="6" class="point" fill="#8b5cf6"></circle>
-      <text class="tag" x="10" y="4">General Public / End Users</text>
-    </g>
-
-    <!-- Monitor (Red, BL) -->
-    <g transform="translate(80,240)">
-      <circle r="6" class="point" fill="#ef4444"></circle>
-      <text class="tag" x="10" y="4">Online Safety Blogs / Websites</text>
-    </g>
-    <g transform="translate(160,280)">
-      <circle r="6" class="point" fill="#ef4444"></circle>
-      <text class="tag" x="10" y="4">Cybersecurity Professionals / Experts</text>
-    </g>
-  </g>
-</svg>
-
-
-          
+.grid-section p {
+  margin-bottom: 1rem;
+  color: #333;
+}
+</style>
       
 <!-- Section 6 -->
 <div class="section" data-section="6">
