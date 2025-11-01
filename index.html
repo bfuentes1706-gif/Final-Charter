@@ -525,6 +525,347 @@
       font-size: 0.95rem;
     }
     
+    /* Power Grid */
+    .power-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      margin: 1.5rem 0;
+      height: 500px;
+    }
+    
+    .grid-quadrant {
+      border-radius: 16px;
+      padding: 1.5rem;
+      color: #0f172a;
+      border: 2px solid;
+    }
+    
+    .grid-quadrant h4 {
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+      color: #0f172a;
+      border-bottom: 2px solid rgba(15, 23, 42, 0.2);
+      padding-bottom: 0.5rem;
+    }
+    
+    .grid-quadrant ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .grid-quadrant li {
+      padding: 0.5rem 0;
+      color: #0f172a;
+      font-weight: 500;
+    }
+    
+    .manage-closely {
+      background: linear-gradient(135deg, #a6d38e, #c8e6b8);
+      border-color: #86c66d;
+    }
+    
+    .keep-satisfied {
+      background: linear-gradient(135deg, #f4a44f, #f7c080);
+      border-color: #e89033;
+    }
+    
+    .keep-informed {
+      background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+      border-color: #8b5cf6;
+    }
+    
+    .monitor {
+      background: linear-gradient(135deg, #ef6461, #f48884);
+      border-color: #dc4c4a;
+    }
+    
+    /* Status Report Styling */
+    .status-report-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .status-report-header {
+      border-bottom: 3px solid #6366f1;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .status-report-header h3 {
+      margin: 0 0 0.5rem 0;
+      color: #0f172a;
+      font-size: 1.5rem;
+    }
+    
+    .status-report-meta {
+      color: #64748b;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .status-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .status-info-item {
+      background: #f8fafc;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .status-info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .status-info-value {
+      font-size: 0.875rem;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    
+    .status-health {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 2px solid #10b981;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .status-health-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 0.5rem;
+    }
+    
+    .status-health-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    
+    .status-health-badge.green {
+      background: #10b981;
+      color: white;
+    }
+    
+    .status-health-badge.amber {
+      background: #f59e0b;
+      color: white;
+    }
+    
+    .status-health-badge.red {
+      background: #ef4444;
+      color: white;
+    }
+    
+    .status-health-summary {
+      color: #065f46;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    
+    .status-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .status-section h4 {
+      font-size: 1rem;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .status-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .status-list.accomplishments li {
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.5rem;
+      background: #f0fdf4;
+      border-left: 4px solid #10b981;
+      border-radius: 6px;
+      color: #065f46;
+    }
+    
+    .status-list.plans li {
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.5rem;
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 6px;
+      color: #1e3a8a;
+    }
+    
+    .milestone-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    
+    .milestone-table th {
+      background: #f1f5f9;
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .milestone-table td {
+      padding: 0.75rem;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+    }
+    
+    .milestone-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .milestone-badge.on-track {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #10b981;
+    }
+    
+    .milestone-badge.at-risk {
+      background: #fed7aa;
+      color: #92400e;
+      border: 1px solid #f59e0b;
+    }
+    
+    .status-message {
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid;
+    }
+    
+    .status-message.no-issues {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    
+    .status-message.minor-issue {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    
+    .status-message.no-changes {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      color: #475569;
+    }
+    
+    .status-message p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.875rem;
+    }
+    
+    /* Weekly Status Table */
+    .weekly-status-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      background: white;
+    }
+    
+    .weekly-status-table thead th {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      padding: 1rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      border: 1px solid #5b21b6;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .weekly-status-table tbody td {
+      padding: 1rem 0.75rem;
+      border: 1px solid #e2e8f0;
+      vertical-align: top;
+      background: white;
+      color: #334155;
+      line-height: 1.6;
+    }
+    
+    .weekly-status-table tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    
+    .weekly-status-table tbody tr:hover {
+      background: #f1f5f9;
+    }
+    
+    .health-badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    
+    .health-badge.green {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1.5px solid #10b981;
+    }
+    
+    .health-badge.amber {
+      background: #fed7aa;
+      color: #92400e;
+      border: 1.5px solid #f59e0b;
+    }
+    
+    .health-badge.red {
+      background: #fecaca;
+      color: #991b1b;
+      border: 1.5px solid #ef4444;
+    }
+    
+    .compact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .compact-list li {
+      padding: 0.25rem 0;
+      line-height: 1.5;
+    }
+    
     /* SVG Styling */
     svg {
       max-width: 100%;
@@ -661,7 +1002,6 @@
           <div class="section-body">
             <h3>Project Title: Personal Cybersecurity Awareness Guide</h3>
             <p>This project will create a clear and accessible cybersecurity guide that teaches everyday internet users how to protect themselves from common online threats such as phishing, weak passwords, and unsafe browsing. The guide will provide step-by-step tips, real-world examples, and best practices to promote safer digital habits. It will benefit students, professionals, and the general public by increasing awareness and reducing the risk of cyberattacks.</p>
-            </p>
           </div>
         </div>
       </div>
@@ -737,7 +1077,7 @@
                 <h4>✅ In Scope for Semester Project</h4>
                 <ul>
                   <li>Research and explain safe browsing habits, including recognizing secure websites, avoiding malicious links, and understanding privacy settings.</li>
-                  <li>identify common signs of phishing emails and messages, and provide clear steps for verifying legitimate sources.</li>
+                  <li>Identify common signs of phishing emails and messages, and provide clear steps for verifying legitimate sources.</li>
                   <li>Emphasize the importance of creating strong, unique passwords and introduce methods for safely managing them (e.g., password managers).</li>
                   <li>Write, design, and format the Personal Cybersecurity Awareness Guide into a clear and visually engaging document.</li>
                 </ul>
@@ -793,410 +1133,429 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Instructor</td>
+                  <td>Project Sponsor (Instructor / Advisor)</td>
                   <td>Internal</td>
-                  <td>Provides guidance, evaluates project progress, and ensures alignment with course objectives.</td>
+                  <td>Approves deliverables, evaluates project, and ensures alignment with learning objectives.</td>
                   <td>High</td>
                   <td>High</td>
-                  <td>Schedule consistent communication and apply feedback to improve the final deliverable.</td>
+                  <td>Manage Closely — provide regular updates, reviews, and progress reports.</td>
                 </tr>
                 <tr>
-                  <td>Classmates/Peers</td>
+                  <td>Project Manager (You – Student)</td>
                   <td>Internal</td>
-                  <td>Act as reviewers, offering constructive feedback on clarity, readability, and usefulness.</td>
-                  <td>Medium</td>
+                  <td>Plans, executes, and delivers all project components.</td>
                   <td>High</td>
-                  <td>Share drafts for review, gather peer input, and apply feedback to enhance the guide’s accessibility.</td>
+                  <td>High</td>
+                  <td>Manage Closely — responsible for scope, schedule, and quality.</td>
                 </tr>
                 <tr>
-                  <td>Family/Friends</td>
+                  <td>End Users (Students, General Public)</td>
                   <td>External</td>
-                  <td>Represent everyday internet users who can test readability and practical usefulness.</td>
+                  <td>Target audience who will read and benefit from the guide.</td>
                   <td>Low</td>
                   <td>High</td>
-                  <td>Share the draft guide with them for honest, user-focused feedback and suggestions.</td>
+                  <td>Keep Informed — gather feedback, simplify content for accessibility.</td>
                 </tr>
                 <tr>
-                  <td>Cybersecurity Professionals/Experts</td>
+                  <td>Cybersecurity Expert / Consultant</td>
                   <td>External</td>
-                  <td>Provide credible insights and best practices through published research and online resources.</td>
+                  <td>Reviews content for technical accuracy and relevance.</td>
                   <td>Medium</td>
                   <td>Medium</td>
-                  <td></td>
+                  <td>Keep Satisfied — consult during research and review stages.</td>
                 </tr>
                 <tr>
-                  <td>IT Club Members</td>
+                  <td>Class Peers</td>
                   <td>Internal</td>
-                  <td>Offer peer collaboration and technical insight on cybersecurity topics and digital tools.</td>
+                  <td>Peer reviewers and test audience for usability feedback.</td>
+                  <td>Low</td>
                   <td>Medium</td>
+                  <td>Monitor / Keep Informed — collect informal feedback and suggestions.</td>
+                </tr>
+                <tr>
+                  <td>IT Department or Digital Literacy Program</td>
+                  <td>Internal</td>
+                  <td>May support hosting, dissemination, or technical feedback.</td>
+                  <td>Medium</td>
+                  <td>Low</td>
+                  <td>Keep Satisfied — periodic updates and collaboration as needed.</td>
+                </tr>
+                <tr>
+                  <td>Institution Administration / Program Coordinator</td>
+                  <td>Internal</td>
+                  <td>Oversees academic quality and approves project outcomes.</td>
                   <td>High</td>
-                  <td>Consult for technical advice and validate content accuracy and design usability.</td>
+                  <td>Medium</td>
+                  <td>Keep Satisfied — formal status reports or presentation summary.</td>
                 </tr>
                 <tr>
-                  <td>Potential Employers/Recruiters</td>
+                  <td>Community / Public Stakeholders</td>
                   <td>External</td>
-                  <td>Interested in reviewing the website as part of the candidate portfolio.</td>
-                  <td>High</td>
-                  <td>High</td>
-                  <td>Highlight project on portfolio and LinkedIn; share during applications and interviews.</td>
-                </tr>
-                <tr>
-                  <td>Online Safety Blogs</td>
-                  <td>External</td>
-                  <td>Provide trusted online safety information and serve as references for best practices.</td>
-                  <td>Medium</td>
-                  <td>Medium</td>
-                  <td>Research and cite credible articles to keep guide content current and reliable.</td>
-                </tr>
-                <tr>
-                  <td>Local Community Center</td>
-                  <td>External</td>
-                  <td>Potential partner for community outreach or distributing the cybersecurity guide.</td>
-                  <td>Medium</td>
-                  <td>Medium</td>
-                  <td>Communicate with staff to explore sharing opportunities and gather public feedback.</td>
-                </tr>
-                <tr>
-                  <td>General Public/End Users</td>
-                  <td>External</td>
-                  <td>Represent the ultimate audience who will benefit from increased online safety awareness.</td>
+                  <td>Potential audience members for public awareness impact.</td>
                   <td>Low</td>
                   <td>High</td>
+                  <td>Keep Informed — distribute final guide and collect community feedback.</td>
                 </tr>
               </tbody>
             </table>
- <!-- Power–Interest Grid Section -->
-<section class="grid-section">
-  <h2>Power–Interest Grid</h2>
-  <p>The Power–Interest Grid below shows how stakeholders are grouped based on their level of influence (power) and involvement (interest) in the project.</p>
-
-  <div class="grid-container">
-    <div class="quadrant high-power-high-interest">
-      <h3>Manage Closely</h3>
-      <ul>
-        <li>Instructor</li>
-      </ul>
-    </div>
-
-    <div class="quadrant high-power-low-interest">
-      <h3>Keep Satisfied</h3>
-      <ul>
-        <li>Faculty / Academic Advisor</li>
-        <li>Local Community Center</li>
-      </ul>
-    </div>
-
-    <div class="quadrant low-power-high-interest">
-      <h3>Keep Informed</h3>
-      <ul>
-        <li>Classmates / Peers</li>
-        <li>IT Club Members</li>
-        <li>Family & Friends</li>
-        <li>General Public / End Users</li>
-      </ul>
-    </div>
-
-    <div class="quadrant low-power-low-interest">
-      <h3>Monitor</h3>
-      <ul>
-        <li>Online Safety Blogs / Websites</li>
-        <li>Cybersecurity Professionals / Experts</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-           <style>
-.grid-section {
-  margin-top: 2rem;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 8px;
-  margin: 1rem auto;
-  width: 80%;
-  max-width: 800px;
-  height: 500px;
-}
-
-.quadrant {
-  border-radius: 10px;
-  padding: 1rem;
-  color: #111;
-  font-size: 0.95rem;
-  text-align: left;
-}
-
-.quadrant h3 {
-  margin-top: 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.high-power-high-interest { background-color: #a6d38e; }   /* Green */
-.high-power-low-interest { background-color: #f4a44f; }    /* Orange */
-.low-power-high-interest { background-color: #a78bfa; }    /* Purple */
-.low-power-low-interest { background-color: #ef6461; }     /* Red */
-
-.grid-section p {
-  margin-bottom: 1rem;
-  color: #333;
-}
-</style>
-      
-<!-- Section 6 -->
-<div class="section" data-section="6">
-  <div class="section-header" onclick="toggleSection(this)">
-    <div class="section-header-left">
-      <div class="section-icon">📦</div>
-      <div>
-        <div class="section-title">Deliverables Chart</div>
-        <div class="section-meta">Project outputs and definitions</div>
-      </div>
-    </div>
-    <div class="chevron">▼</div>
-  </div>
-
-  <div class="section-content">
-    <div class="section-body">
-      <table>
-        <thead>
-          <tr>
-            <th>Deliverable</th>
-            <th>Description</th>
-            <th>Owner</th>
-            <th>Due Date / Week</th>
-            <th>Dependencies</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Research Brief</td>
-            <td>Conduct research on browsing safety, phishing prevention, and password management using credible cybersecurity sources.</td>
-            <td>Self</td>
-            <td>Week 2</td>
-            <td>None</td>
-          </tr>
-          <tr>
-            <td>Content Outline</td>
-            <td>Develop an organized outline for the guide, defining structure and key sections.</td>
-            <td>Self</td>
-            <td>Week 3</td>
-            <td>Research Brief</td>
-          </tr>
-          <tr>
-            <td>First Draft</td>
-            <td>Write the initial version of the guide including examples, safety checklists, and clear explanations.</td>
-            <td>Self</td>
-            <td>Week 4</td>
-            <td>Content Outline</td>
-          </tr>
-          <tr>
-            <td>Design Layout</td>
-            <td>Format and design the guide using tools like Canva or Google Docs, ensuring readability and accessibility.</td>
-            <td>Self</td>
-            <td>Week 5</td>
-            <td>First Draft</td>
-          </tr>
-          <tr>
-            <td>Peer &amp; Instructor Feedback</td>
-            <td>Collect constructive feedback from classmates, family, and instructor to refine the guide.</td>
-            <td>Self</td>
-            <td>Week 6</td>
-            <td>Design Layout</td>
-          </tr>
-          <tr>
-            <td>Final Guide</td>
-            <td>Submit the completed and revised cybersecurity awareness guide in PDF or web format.</td>
-            <td>Self</td>
-            <td>Week 7</td>
-            <td>Feedback Review</td>
-          </tr>
-          <tr>
-            <td>Reflection Summary</td>
-            <td>Write a short reflection describing lessons learned, project challenges, and potential future improvements.</td>
-            <td>Self</td>
-            <td>Week 7</td>
-            <td>Final Guide</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-<!-- Section 7: Budget -->
-<div class="section" data-section="7">
-  <div class="section-header" onclick="toggleSection(this)">
-    <div class="section-header-left">
-      <div class="section-icon">💵</div>
-      <div>
-        <div class="section-title">Budget Estimate</div>
-        <div class="section-meta">Minimal-cost plan with optional add-ons</div>
-      </div>
-    </div>
-    <div class="chevron">▼</div>
-  </div>
-
-  <div class="section-content">
-    <div class="section-body">
-      <p>The <em>Personal Cybersecurity Awareness Guide</em> can be completed at near-zero cost using free tools. The items below reflect a frugal baseline and a few optional enhancements.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Purpose / Description</th>
-            <th>Estimated Cost (USD)</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Design Tools (Canva / PowerPoint)</td>
-            <td>Create infographics, layout, and visuals for the guide.</td>
-            <td>$0</td>
-            <td>Use free tiers; no paid upgrade required.</td>
-          </tr>
-          <tr>
-            <td>Document Tools (Google Docs / Word)</td>
-            <td>Authoring, editing, and formatting the guide content.</td>
-            <td>$0</td>
-            <td>Free with school account or existing license.</td>
-          </tr>
-          <tr>
-            <td>Printing (Optional)</td>
-            <td>Limited hard copies for showcase or submission.</td>
-            <td>$20</td>
-            <td>Skip to keep the budget at $0.</td>
-          </tr>
-          <tr>
-            <td>Presentation Materials</td>
-            <td>Simple handouts or poster for awareness session.</td>
-            <td>$10</td>
-            <td>Optional; can be fully digital.</td>
-          </tr>
-          <tr>
-            <td>Miscellaneous (Storage/Backups)</td>
-            <td>USB drive or cloud storage for version backups.</td>
-            <td>$5</td>
-            <td>Often covered by free cloud quotas.</td>
-          </tr>
-          <tr>
-            <td><strong>Total Estimated Budget</strong></td>
-            <td><strong>Minimal-cost project with optional print assets</strong></td>
-            <td><strong>$35</strong></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><em>Cost-saving tip:</em> Stay fully digital (no printing) and use free tool tiers to keep the project at <strong>$0</strong>.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Section 9: Project Methodology -->
-<div class="section" data-section="9">
-  <div class="section-header" onclick="toggleSection(this)">
-    <div class="section-header-left">
-      <div class="section-icon">🔄</div>
-      <div>
-        <div class="section-title">Project Methodology</div>
-        <div class="section-meta">Hybrid (Waterfall + Agile) approach with iterative feedback cycles</div>
-      </div>
-    </div>
-    <div class="chevron">▼</div>
-  </div>
-
-  <div class="section-content">
-    <div class="section-body">
-      <h4>Project Methodology Explanation:</h4>
-      <p>This project uses a <strong>Hybrid methodology</strong>: <em>Waterfall</em> is applied for structured planning and research, while <em>Agile</em> supports iterative design and stakeholder feedback. This balance ensures both organization and flexibility throughout the development of the <em>Personal Cybersecurity Awareness Guide</em>.</p>
-
-      <h4>Project Methodology Diagram:</h4>
-      <p>The diagram below shows how the Predictive method is used in this project:</p>
-      <svg width="100%" height="300" viewBox="0 0 800 300" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white;">
-        <!-- Phase boxes -->
-        <rect x="40" y="80" width="120" height="60" rx="10" style="fill:#f9fafb;stroke:#94a3b8;stroke-width:1.4;"></rect>
-        <text x="100" y="115" text-anchor="middle" style="font-family:Arial;fill:#0f172a;font-size:13px;font-weight:600;">Initiation</text>
-
-        <rect x="200" y="80" width="120" height="60" rx="10" style="fill:#f9fafb;stroke:#94a3b8;stroke-width:1.4;"></rect>
-        <text x="260" y="115" text-anchor="middle" style="font-family:Arial;fill:#0f172a;font-size:13px;font-weight:600;">Planning</text>
-
-        <rect x="360" y="80" width="120" height="60" rx="10" style="fill:#f9fafb;stroke:#94a3b8;stroke-width:1.4;"></rect>
-        <text x="420" y="115" text-anchor="middle" style="font-family:Arial;fill:#0f172a;font-size:13px;font-weight:600;">Execution</text>
-
-        <rect x="520" y="80" width="120" height="60" rx="10" style="fill:#f9fafb;stroke:#94a3b8;stroke-width:1.4;"></rect>
-        <text x="580" y="115" text-anchor="middle" style="font-family:Arial;fill:#0f172a;font-size:13px;font-weight:600;">Monitoring</text>
-
-        <rect x="680" y="80" width="120" height="60" rx="10" style="fill:#f9fafb;stroke:#94a3b8;stroke-width:1.4;"></rect>
-        <text x="740" y="115" text-anchor="middle" style="font-family:Arial;fill:#0f172a;font-size:13px;font-weight:600;">Closure</text>
-
-        <!-- Arrows -->
-        <defs>
-          <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
-          </marker>
-        </defs>
-        <line x1="160" y1="110" x2="200" y2="110" style="stroke:#94a3b8;stroke-width:2;fill:none;marker-end:url(#arrowhead2);"></line>
-        <line x1="320" y1="110" x2="360" y2="110" style="stroke:#94a3b8;stroke-width:2;fill:none;marker-end:url(#arrowhead2);"></line>
-        <line x1="480" y1="110" x2="520" y2="110" style="stroke:#94a3b8;stroke-width:2;fill:none;marker-end:url(#arrowhead2);"></line>
-        <line x1="640" y1="110" x2="680" y2="110" style="stroke:#94a3b8;stroke-width:2;fill:none;marker-end:url(#arrowhead2);"></line>
-
-        <text x="400" y="180" text-anchor="middle" style="font-family:Arial;fill:#0f172a;font-size:14px;font-weight:700;">Predictive (Waterfall) Project Flow</text>
-      </svg>
-    </div>
-  </div>
-</div>
-
-<!-- Section 10: Project Tool -->
-<div class="section" data-section="10">
-  <div class="section-header" onclick="toggleSection(this)">
-    <div class="section-header-left">
-      <div class="section-icon">🧰</div>
-      <div>
-        <div class="section-title">Project Tool</div>
-        <div class="section-meta">Microsoft Planner – task tracking and scheduling</div>
-      </div>
-    </div>
-    <div class="chevron">▼</div>
-  </div>
-
-  <div class="section-content">
-    <div class="section-body">
-      <div class="placeholder" style="margin-top:14px;">
-        <h4>Project Tool Selection Explanation:</h4>
-        <p>I chose <strong>Microsoft Planner</strong> to organize my project. It helps me track tasks, set deadlines, and see all my work in one place. It also makes it easy to adjust tasks if needed.</p>
-      </div>
-
-      <div class="placeholder">
-        <h4>Project Tool Screenshots:</h4>
-        <div style="display:flex; gap:15px; flex-wrap:wrap;">
-          <div style="flex:1; min-width:200px;">
-            <img src="Board.png" style="width:100%; border:1px solid #ccc; border-radius:8px;" alt="Board View Screenshot">
-            <p style="text-align:center; font-size:12px; margin-top:5px;">Board View</p>
-          </div>
-          <div style="flex:1; min-width:200px;">
-            <img src="Grid.png" alt="Project Grid Screenshot" style="width:100%; border:1px solid #ccc; border-radius:8px;">
-            <p style="text-align:center; font-size:12px; margin-top:5px;">Grid View</p>
-          </div>
-          <div style="flex:1; min-width:200px;">
-            <img src="charts.png" alt="Project Chart Screenshot" style="width:100%; border:1px solid #ccc; border-radius:8px;">
-            <p style="text-align:center; font-size:12px; margin-top:5px;">Chart View</p>
+            
+            <!-- Power-Interest Grid Section -->
+            <div style="margin-top: 3rem;">
+              <h3>Power–Interest Grid</h3>
+              <p>The Power–Interest Grid below shows how stakeholders are grouped based on their level of influence (power) and involvement (interest) in the project.</p>
+              
+              <div class="power-grid">
+                <div class="grid-quadrant manage-closely">
+                  <h4>Manage Closely</h4>
+                  <ul>
+                    <li>Project Sponsor (Instructor / Advisor)</li>
+                    <li>Project Manager (You – Student)</li>
+                  </ul>
+                </div>
+                
+                <div class="grid-quadrant keep-satisfied">
+                  <h4>Keep Satisfied</h4>
+                  <ul>
+                    <li>Cybersecurity Expert / Consultant</li>
+                    <li>IT Department / Digital Literacy Program</li>
+                    <li>Institution Administration / Program Coordinator</li>
+                  </ul>
+                </div>
+                
+                <div class="grid-quadrant keep-informed">
+                  <h4>Keep Informed</h4>
+                  <ul>
+                    <li>End Users (Students, General Public)</li>
+                    <li>Class Peers</li>
+                    <li>Community / Public Stakeholders</li>
+                  </ul>
+                </div>
+                
+                <div class="grid-quadrant monitor">
+                  <h4>Monitor</h4>
+                  <ul>
+                    <li>Class Peers (low engagement)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-      <!-- Section 9 -->
+      
+      <!-- Section 6 -->
+      <div class="section" data-section="6">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-header-left">
+            <div class="section-icon">📦</div>
+            <div>
+              <div class="section-title">Deliverables Chart</div>
+              <div class="section-meta">Project outputs and definitions</div>
+            </div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Deliverable</th>
+                  <th>SMART Description</th>
+                  <th>Definition of Done (DoD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Research & Content Planning</td>
+                  <td>Complete research on 3 core cybersecurity topics (phishing, passwords, safe browsing) using at least 5 credible sources by Week 2, and create a detailed content outline with section headings and key points.</td>
+                  <td>Research documented with citations, content outline approved by instructor, key topics identified and organized into logical sections.</td>
+                </tr>
+                <tr>
+                  <td>First Draft of Guide</td>
+                  <td>Write a complete first draft of the cybersecurity guide (minimum 8-10 pages) covering all planned topics with examples and explanations by Week 4.</td>
+                  <td>All sections written with clear explanations, at least 2 real-world examples per topic included, draft submitted to instructor for initial feedback.</td>
+                </tr>
+                <tr>
+                  <td>Visual Design & Layout</td>
+                  <td>Design and format the guide using Canva or Google Docs by Week 5, incorporating at least 5 infographics, consistent branding, and accessible color scheme (WCAG AA compliant).</td>
+                  <td>Guide is visually appealing, all graphics created/sourced, formatting is consistent throughout, accessibility checklist completed.</td>
+                </tr>
+                <tr>
+                  <td>Peer Review & Usability Testing</td>
+                  <td>Conduct usability testing with 3-5 peers and family members by Week 6, collecting feedback on clarity, readability, and usefulness using a structured feedback form.</td>
+                  <td>Feedback collected from minimum 3 testers, feedback form completed, list of improvement areas documented with priority rankings.</td>
+                </tr>
+                <tr>
+                  <td>Technical Review & Validation</td>
+                  <td>Have content reviewed by IT Club member or cybersecurity expert by Week 6 to ensure technical accuracy of all security recommendations and best practices.</td>
+                  <td>Technical reviewer completes review checklist, all inaccuracies corrected, expert sign-off or approval received.</td>
+                </tr>
+                <tr>
+                  <td>Final Polished Guide (PDF/Digital Format)</td>
+                  <td>Complete the final version of the cybersecurity awareness guide incorporating all feedback by Week 7, exported as a professional PDF with working hyperlinks and table of contents.</td>
+                  <td>All feedback implemented, guide is error-free (spelling/grammar check completed), PDF is professionally formatted and accessible, file size optimized for sharing.</td>
+                </tr>
+                <tr>
+                  <td>Project Reflection & Presentation</td>
+                  <td>Create a 5-minute presentation summarizing the project process, lessons learned, and key takeaways by Week 7, along with a 2-page written reflection.</td>
+                  <td>Presentation slides completed, reflection document addresses challenges and learnings, presented to class or submitted to instructor.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 7 -->
+      <div class="section" data-section="7">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-header-left">
+            <div class="section-icon">💵</div>
+            <div>
+              <div class="section-title">Budget Estimate</div>
+              <div class="section-meta">Minimal-cost plan with optional add-ons</div>
+            </div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <p>The <em>Personal Cybersecurity Awareness Guide</em> can be completed at near-zero cost using free tools. The items below reflect a frugal baseline and a few optional enhancements.</p>
+            
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Purpose / Description</th>
+                  <th>Estimated Cost (USD)</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Design Tools (Canva / PowerPoint)</td>
+                  <td>Create infographics, layout, and visuals for the guide.</td>
+                  <td>$0</td>
+                  <td>Use free tiers; no paid upgrade required.</td>
+                </tr>
+                <tr>
+                  <td>Document Tools (Google Docs / Word)</td>
+                  <td>Authoring, editing, and formatting the guide content.</td>
+                  <td>$0</td>
+                  <td>Free with school account or existing license.</td>
+                </tr>
+                <tr>
+                  <td>Printing (Optional)</td>
+                  <td>Limited hard copies for showcase or submission.</td>
+                  <td>$20</td>
+                  <td>Skip to keep the budget at $0.</td>
+                </tr>
+                <tr>
+                  <td>Presentation Materials</td>
+                  <td>Simple handouts or poster for awareness session.</td>
+                  <td>$10</td>
+                  <td>Optional; can be fully digital.</td>
+                </tr>
+                <tr>
+                  <td>Miscellaneous (Storage/Backups)</td>
+                  <td>USB drive or cloud storage for version backups.</td>
+                  <td>$5</td>
+                  <td>Often covered by free cloud quotas.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Total Estimated Budget</th>
+                  <th>Minimal-cost project with optional print assets</th>
+                  <th>$35</th>
+                  <th></th>
+                </tr>
+              </tfoot>
+            </table>
+            
+            <p style="margin-top: 1.5rem;"><em>Cost-saving tip:</em> Stay fully digital (no printing) and use free tool tiers to keep the project at <strong>$0</strong>.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 8 -->
+      <div class="section" data-section="8">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-header-left">
+            <div class="section-icon">🔄</div>
+            <div>
+              <div class="section-title">Project Methodology</div>
+              <div class="section-meta">Hybrid (Waterfall + Agile) approach with iterative feedback cycles</div>
+            </div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <h4>Project Methodology Explanation:</h4>
+            <p>This project uses a <strong>Hybrid methodology</strong>: <em>Waterfall</em> is applied for structured planning and research, while <em>Agile</em> supports iterative design and stakeholder feedback. This balance ensures both organization and flexibility throughout the development of the <em>Personal Cybersecurity Awareness Guide</em>.</p>
+            
+            <h4>Project Methodology Diagram:</h4>
+            <p>The diagram below shows the iterative sprint-based approach with continuous improvement cycles:</p>
+            
+            <div style="background: white; border-radius: 16px; padding: 2rem; border: 2px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+              <!-- Timeline Header -->
+              <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid #cbd5e1;">
+                <div style="text-align: center; flex: 1;">
+                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Sprint 1-2</div>
+                  <div style="font-size: 1.5rem; font-weight: 700; color: #6366f1;">Plan</div>
+                  <div style="font-size: 0.875rem; color: #64748b;">Weeks 2-3</div>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Sprint 3-4</div>
+                  <div style="font-size: 1.5rem; font-weight: 700; color: #f59e0b;">Build</div>
+                  <div style="font-size: 0.875rem; color: #64748b;">Weeks 4-5</div>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Sprint 5-6</div>
+                  <div style="font-size: 1.5rem; font-weight: 700; color: #ef4444;">Test</div>
+                  <div style="font-size: 0.875rem; color: #64748b;">Weeks 6-7</div>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                  <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Final Sprint</div>
+                  <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">Deploy</div>
+                  <div style="font-size: 0.875rem; color: #64748b;">Weeks 8-10</div>
+                </div>
+              </div>
+              
+              <!-- Phase Cards -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                <!-- Plan Phase -->
+                <div style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); border: 2px solid #6366f1; border-radius: 12px; padding: 1.25rem;">
+                  <div style="font-weight: 700; font-size: 1rem; color: #3730a3; margin-bottom: 0.75rem;">📋 Planning Phase</div>
+                  <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.8rem; color: #4338ca; line-height: 1.6;">
+                    <li>Define scope</li>
+                    <li>Research topics</li>
+                    <li>Create outline</li>
+                    <li>Set milestones</li>
+                  </ul>
+                  <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 6px; text-align: center; font-size: 0.75rem; font-weight: 600; color: #6366f1;">→ Review</div>
+                </div>
+                
+                <!-- Build Phase -->
+                <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 1.25rem;">
+                  <div style="font-weight: 700; font-size: 1rem; color: #92400e; margin-bottom: 0.75rem;">🔨 Build Phase</div>
+                  <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.8rem; color: #b45309; line-height: 1.6;">
+                    <li>Write content</li>
+                    <li>Design layout</li>
+                    <li>Create visuals</li>
+                    <li>Format guide</li>
+                  </ul>
+                  <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 6px; text-align: center; font-size: 0.75rem; font-weight: 600; color: #f59e0b;">→ Review</div>
+                </div>
+                
+                <!-- Test Phase -->
+                <div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border: 2px solid #ef4444; border-radius: 12px; padding: 1.25rem;">
+                  <div style="font-weight: 700; font-size: 1rem; color: #991b1b; margin-bottom: 0.75rem;">🧪 Testing Phase</div>
+                  <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.8rem; color: #b91c1c; line-height: 1.6;">
+                    <li>Peer review</li>
+                    <li>Usability test</li>
+                    <li>Tech validation</li>
+                    <li>Revise content</li>
+                  </ul>
+                  <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 6px; text-align: center; font-size: 0.75rem; font-weight: 600; color: #ef4444;">→ Review</div>
+                </div>
+                
+                <!-- Deploy Phase -->
+                <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #10b981; border-radius: 12px; padding: 1.25rem;">
+                  <div style="font-weight: 700; font-size: 1rem; color: #065f46; margin-bottom: 0.75rem;">🚀 Deploy Phase</div>
+                  <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.8rem; color: #047857; line-height: 1.6;">
+                    <li>Final polish</li>
+                    <li>Export PDF</li>
+                    <li>Present work</li>
+                    <li>Submit final</li>
+                  </ul>
+                  <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 6px; text-align: center; font-size: 0.75rem; font-weight: 600; color: #10b981;">✓ Complete</div>
+                </div>
+              </div>
+              
+              <!-- Feedback Loop Visualization -->
+              <div style="background: linear-gradient(90deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 12px; padding: 1.5rem; border: 1px dashed #94a3b8;">
+                <div style="text-align: center; font-weight: 700; font-size: 1rem; color: #0f172a; margin-bottom: 1rem;">🔄 Continuous Feedback & Iteration Loop</div>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                  <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);">
+                      <span style="color: white; font-size: 1.5rem;">📝</span>
+                    </div>
+                    <div style="margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; color: #475569;">Plan</div>
+                  </div>
+                  <div style="color: #94a3b8; font-size: 1.5rem;">→</div>
+                  <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #fbbf24); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);">
+                      <span style="color: white; font-size: 1.5rem;">⚙️</span>
+                    </div>
+                    <div style="margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; color: #475569;">Do</div>
+                  </div>
+                  <div style="color: #94a3b8; font-size: 1.5rem;">→</div>
+                  <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #f87171); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);">
+                      <span style="color: white; font-size: 1.5rem;">✓</span>
+                    </div>
+                    <div style="margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; color: #475569;">Check</div>
+                  </div>
+                  <div style="color: #94a3b8; font-size: 1.5rem;">→</div>
+                  <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #34d399); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);">
+                      <span style="color: white; font-size: 1.5rem;">↻</span>
+                    </div>
+                    <div style="margin-top: 0.5rem; font-size: 0.75rem; font-weight: 600; color: #475569;">Act</div>
+                  </div>
+                  <div style="color: #94a3b8; font-size: 1.5rem;">↻</div>
+                </div>
+              </div>
+              
+              <div style="text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: #64748b; font-style: italic;">
+                Agile methodology with sprint-based delivery and continuous stakeholder feedback
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 9: Project Tool -->
       <div class="section" data-section="9">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-header-left">
+            <div class="section-icon">🧰</div>
+            <div>
+              <div class="section-title">Project Tool</div>
+              <div class="section-meta">Microsoft Planner – task tracking and scheduling</div>
+            </div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="section-body">
+            <h4>Project Tool Selection Explanation:</h4>
+            <p>I chose <strong>Microsoft Planner</strong> to organize my project. It helps me track tasks, set deadlines, and see all my work in one place. It also makes it easy to adjust tasks if needed.</p>
+            
+            <h4>Project Tool Screenshots:</h4>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top: 1rem;">
+              <div style="flex:1; min-width:200px;">
+                <img src="Board.png" alt="Board View Screenshot">
+                <p style="text-align:center; font-size:12px; margin-top:5px;">Board View</p>
+              </div>
+              <div style="flex:1; min-width:200px;">
+                <img src="Grid.png" alt="Project Grid Screenshot">
+                <p style="text-align:center; font-size:12px; margin-top:5px;">Grid View</p>
+              </div>
+              <div style="flex:1; min-width:200px;">
+                <img src="charts.png" alt="Project Chart Screenshot">
+                <p style="text-align:center; font-size:12px; margin-top:5px;">Chart View</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 10 -->
+      <div class="section" data-section="10">
         <div class="section-header" onclick="toggleSection(this)">
           <div class="section-header-left">
             <div class="section-icon">📅</div>
@@ -1210,190 +1569,175 @@
         <div class="section-content">
           <div class="section-body">
             
-            <!-- Week 6 -->
-            <div class="week-report">
-              <div class="week-header">
-                <h3>Week 6</h3>
-                <span class="rag rag-green">🟢 On Track</span>
-              </div>
-              
-              <div class="week-summary">
-                <strong>Summary:</strong> Project kickoff week. Set up infrastructure and started initial design work.
-              </div>
-              
-              <div class="week-grid">
-                <div class="week-col">
-                  <h4>✅ Completed</h4>
-                  <ul>
-                    <li>GitHub repo setup</li>
-                    <li>Basic website layout</li>
-                    <li>Content outline drafted</li>
-                  </ul>
-                </div>
+            <table class="weekly-status-table">
+              <thead>
+                <tr>
+                  <th>Date Range</th>
+                  <th>Project Health</th>
+                  <th>Executive Summary</th>
+                  <th>Accomplishments</th>
+                  <th>Plan for Next Week</th>
+                  <th>Upcoming Milestones</th>
+                  <th>Issues & Risks / Mitigations</th>
+                  <th>Changes Since Last Report</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Week 6 -->
+                <tr>
+                  <td><strong>Week 6</strong></td>
+                  <td><span class="health-badge green">🟢 ON TRACK</span></td>
+                  <td>Project kickoff completed successfully. Research phase underway with infrastructure setup and initial content planning established.</td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Researched cybersecurity best practices from credible sources</li>
+                      <li>• Created detailed content outline for guide</li>
+                      <li>• Identified key topics: phishing, passwords, safe browsing</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Begin writing first draft of phishing section</li>
+                      <li>• Start creating visual mockups</li>
+                      <li>• Gather examples for content</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• First Draft — Week 4 (ON TRACK)</li>
+                      <li>• Visual Design — Week 5 (ON TRACK)</li>
+                      <li>• Peer Review — Week 6 (ON TRACK)</li>
+                    </ul>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
                 
-                <div class="week-col">
-                  <h4>📅 Next Week</h4>
-                  <ul>
-                    <li>Write phishing lesson</li>
-                    <li>Start quiz component</li>
-                    <li>Fix color contrast</li>
-                  </ul>
-                </div>
+                <!-- Week 7 -->
+                <tr>
+                  <td><strong>Week 7</strong></td>
+                  <td><span class="health-badge green">🟢 ON TRACK</span></td>
+                  <td>First draft of guide content completed. All three main sections written with examples and explanations included.</td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Completed phishing awareness section</li>
+                      <li>• Completed password management section</li>
+                      <li>• Completed safe browsing section</li>
+                      <li>• Added 2+ real-world examples per topic</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Begin visual design and layout</li>
+                      <li>• Create infographics for key concepts</li>
+                      <li>• Format guide with consistent styling</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Visual Design — Week 5 (ON TRACK)</li>
+                      <li>• Peer Review — Week 6 (ON TRACK)</li>
+                      <li>• Final Guide — Week 7 (ON TRACK)</li>
+                    </ul>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
                 
-                <div class="week-col">
-                  <h4>⚠️ Issues</h4>
-                  <p>None - project starting smoothly</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Week 7 -->
-            <div class="week-report">
-              <div class="week-header">
-                <h3>Week 7</h3>
-                <span class="rag rag-green">🟢 On Track</span>
-              </div>
-              
-              <div class="week-summary">
-                <strong>Summary:</strong> Completed first lesson content and built working quiz prototype.
-              </div>
-              
-              <div class="week-grid">
-                <div class="week-col">
-                  <h4>✅ Completed</h4>
-                  <ul>
-                    <li>Phishing lesson finished</li>
-                    <li>Quiz component working</li>
-                    <li>Added email examples</li>
-                  </ul>
-                </div>
+                <!-- Week 8 -->
+                <tr>
+                  <td><strong>Week 8</strong></td>
+                  <td><span class="health-badge amber">🟡 AT RISK</span></td>
+                  <td>Visual design completed with infographics and formatting. Some accessibility concerns identified that need addressing before peer review.</td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Created 5+ infographics for guide</li>
+                      <li>• Applied consistent formatting and branding</li>
+                      <li>• Ensured WCAG AA color contrast compliance</li>
+                      <li>• Completed accessibility checklist</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Fix accessibility issues identified</li>
+                      <li>• Conduct peer review with 3+ people</li>
+                      <li>• Collect feedback using structured form</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Peer Review — Week 6 (AT RISK)</li>
+                      <li>• Technical Review — Week 6 (AT RISK)</li>
+                      <li>• Final Guide — Week 7 (AT RISK)</li>
+                    </ul>
+                  </td>
+                  <td><strong>MINOR</strong> — Some formatting issues on mobile devices need fixing. <em>Mitigation:</em> Testing on multiple devices and adjusting responsive design.</td>
+                  <td>—</td>
+                </tr>
                 
-                <div class="week-col">
-                  <h4>📅 Next Week</h4>
-                  <ul>
-                    <li>Password lesson</li>
-                    <li>Complete quiz questions</li>
-                    <li>Find more icons</li>
-                  </ul>
-                </div>
+                <!-- Week 9 -->
+                <tr>
+                  <td><strong>Week 9</strong></td>
+                  <td><span class="health-badge green">🟢 ON TRACK</span></td>
+                  <td>Peer review and usability testing completed successfully. All feedback documented and prioritized for implementation.</td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Conducted usability tests with 4 participants</li>
+                      <li>• Collected structured feedback forms</li>
+                      <li>• Fixed mobile responsiveness issues</li>
+                      <li>• Technical review by IT Club member completed</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Implement all priority feedback items</li>
+                      <li>• Final proofreading and editing</li>
+                      <li>• Export professional PDF version</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Final Guide — Week 7 (ON TRACK)</li>
+                      <li>• Project Reflection — Week 7 (ON TRACK)</li>
+                      <li>• Final Presentation — Week 8 (ON TRACK)</li>
+                    </ul>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
                 
-                <div class="week-col">
-                  <h4>⚠️ Issues</h4>
-                  <p>Need to find free icons for content</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Week 8 -->
-            <div class="week-report">
-              <div class="week-header">
-                <h3>Week 8</h3>
-                <span class="rag rag-amber">🟡 At Risk</span>
-              </div>
-              
-              <div class="week-summary">
-                <strong>Summary:</strong> Content done but found accessibility issues that need fixing.
-              </div>
-              
-              <div class="week-grid">
-                <div class="week-col">
-                  <h4>✅ Completed</h4>
-                  <ul>
-                    <li>Password lesson done</li>
-                    <li>All 12 quiz questions</li>
-                    <li>Fixed color contrast</li>
-                  </ul>
-                </div>
-                
-                <div class="week-col">
-                  <h4>📅 Next Week</h4>
-                  <ul>
-                    <li>Add ARIA labels</li>
-                    <li>Test with 3 users</li>
-                    <li>Fix mobile layout bug</li>
-                  </ul>
-                </div>
-                
-                <div class="week-col">
-                  <h4>⚠️ Issues</h4>
-                  <p>Small layout problem on mobile screens</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Week 9 -->
-            <div class="week-report">
-              <div class="week-header">
-                <h3>Week 9</h3>
-                <span class="rag rag-green">🟢 On Track</span>
-              </div>
-              
-              <div class="week-summary">
-                <strong>Summary:</strong> Fixed all issues and completed user testing successfully.
-              </div>
-              
-              <div class="week-grid">
-                <div class="week-col">
-                  <h4>✅ Completed</h4>
-                  <ul>
-                    <li>User testing done</li>
-                    <li>Mobile bug fixed</li>
-                    <li>Added security features</li>
-                  </ul>
-                </div>
-                
-                <div class="week-col">
-                  <h4>📅 Next Week</h4>
-                  <ul>
-                    <li>Final polish</li>
-                    <li>Portfolio page</li>
-                    <li>Prepare launch</li>
-                  </ul>
-                </div>
-                
-                <div class="week-col">
-                  <h4>⚠️ Issues</h4>
-                  <p>Need to optimize images for speed</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Week 10 -->
-            <div class="week-report">
-              <div class="week-header">
-                <h3>Week 10</h3>
-                <span class="rag rag-green">🟢 On Track</span>
-              </div>
-              
-              <div class="week-summary">
-                <strong>Summary:</strong> Final week - launched website and added to portfolio!
-              </div>
-              
-              <div class="week-grid">
-                <div class="week-col">
-                  <h4>✅ Completed</h4>
-                  <ul>
-                    <li>Website launched live</li>
-                    <li>Portfolio page created</li>
-                    <li>Shared on LinkedIn</li>
-                  </ul>
-                </div>
-                
-                <div class="week-col">
-                  <h4>📅 Next Steps</h4>
-                  <ul>
-                    <li>Gather more feedback</li>
-                    <li>Plan future updates</li>
-                    <li>Use in job applications</li>
-                  </ul>
-                </div>
-                
-                <div class="week-col">
-                  <h4>⚠️ Issues</h4>
-                  <p>None - project complete!</p>
-                </div>
-              </div>
-            </div>
+                <!-- Week 10 -->
+                <tr>
+                  <td><strong>Week 10</strong></td>
+                  <td><span class="health-badge green">🟢 ON TRACK</span></td>
+                  <td>Final guide completed and submitted. All feedback implemented, PDF exported, and presentation prepared for delivery.</td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Implemented all feedback revisions</li>
+                      <li>• Completed final spell/grammar check</li>
+                      <li>• Exported professional PDF with TOC</li>
+                      <li>• Created 5-minute presentation</li>
+                      <li>• Wrote 2-page reflection document</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Present project to class</li>
+                      <li>• Submit final deliverables</li>
+                      <li>• Share guide with community</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul class="compact-list">
+                      <li>• Final Presentation — Week 8 (COMPLETE)</li>
+                      <li>• Project Submission — Week 8 (COMPLETE)</li>
+                    </ul>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
             
           </div>
         </div>
